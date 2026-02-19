@@ -1,9 +1,10 @@
-import { Text, View } from "react-native";
+import Header from "@/components/header/Header";
+import { View } from "react-native";
 
 export default function About() {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>about</Text>
+    <View style={{ flex: 1 }}>
+      <Header />
     </View>
   );
 }
