@@ -1,0 +1,63 @@
+import { pallete } from "@/themes/pallete";
+import { Feather } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import { Platform } from "react-native";
+
+export default function TabsLayout() {
+  return (
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarShowLabel: true,
+        tabBarLabelStyle: { fontSize: 13, marginTop: 1, fontWeight: "900" },
+        tabBarActiveTintColor: pallete.active,
+        tabBarInactiveTintColor: pallete.inactive,
+        tabBarStyle: {
+          position: "absolute",
+          left: 16,
+          right: 16,
+          bottom: 16,
+          height: 70,
+          paddingBottom: Platform.OS === "ios" ? 10 : 8,
+          paddingTop: 10,
+          backgroundColor: pallete.tabBg,
+          borderTopWidth: 0,
+          borderRadius: 22,
+          shadowColor: pallete.shadow,
+          shadowOpacity: 0.18,
+          shadowRadius: 18,
+          shadowOffset: { width: 0, height: 10 },
+          elevation: 10,
+        }
+      }}
+    >
+      <Tabs.Screen
+        name="Catalog"
+        options={{
+          title: "Catálogo",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="AddBird"
+        options={{
+          title: "Adicionar",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="plus-circle" size={size} color={color} />
+          ),
+        }}
+      />
+       <Tabs.Screen
+        name="About"
+        options={{
+          title: "Sobre",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="info" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
+  );
+}
