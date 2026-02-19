@@ -1,0 +1,4 @@
+import { ImageSourcePropType } from "react-native";
+
+export const birdaiLogo: ImageSourcePropType | undefined = require("./birdai-logo.png")
+export const birdaiAddedBird: ImageSourcePropType | undefined = require("./birdai-added-bird.png")
