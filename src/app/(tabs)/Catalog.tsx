@@ -1,5 +1,5 @@
 import { View } from "react-native";
 
-export default function Catalog() {
+export default function Catalog(): React.JSX.Element {
   return <View style={{ flex: 1 }}></View>;
 }
