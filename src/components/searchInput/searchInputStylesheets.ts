@@ -1,3 +1,4 @@
+import { pallete } from "@/themes/pallete";
 import { StyleSheet } from "react-native";
 
 export const searchInputStylesheets = StyleSheet.create({
@@ -12,6 +13,7 @@ export const searchInputStylesheets = StyleSheet.create({
     marginTop: 10
   },
   input: {
+    color: pallete.tabBg,
     fontSize: 17,
     width: '100%',
     borderRadius: 30,
