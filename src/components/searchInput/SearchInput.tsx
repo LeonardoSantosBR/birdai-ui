@@ -8,7 +8,7 @@ export default function SearchInput(): React.JSX.Element {
 
   return (
     <View style={searchInputStylesheets.container}>
-      <Feather name="search" size={18} color="#999" />
+      <Feather name="search" size={27} color="#999" />
 
       <TextInput
         placeholder="Buscar aves..."

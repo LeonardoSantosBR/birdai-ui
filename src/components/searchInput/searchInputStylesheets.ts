@@ -14,6 +14,6 @@ export const searchInputStylesheets = StyleSheet.create({
   input: {
     fontSize: 17,
     width: '100%',
-    borderRadius: 30
+    borderRadius: 30,
   },
 });
