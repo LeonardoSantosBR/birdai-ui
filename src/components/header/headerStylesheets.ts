@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
 
-export const headerStyles = StyleSheet.create({
+export const headerStylesheets = StyleSheet.create({
   container: {
     width: "100%",
+    height: "15%",
     alignItems: "center",
     paddingVertical: 1,
   },
