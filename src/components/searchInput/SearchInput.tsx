@@ -1,15 +1,22 @@
 import { Feather } from "@expo/vector-icons";
+import { useState } from "react";
 import { TextInput, View } from "react-native";
 import { searchInputStylesheets } from "./searchInputStylesheets";
 
-export default function SearchInput() {
-    return <View>
-        <Feather name="search" size={18} color="#999" />
+export default function SearchInput(): React.JSX.Element {
+  const [search, setSearch] = useState("");
 
-        <TextInput
-            placeholder="Buscar aves..."
-            placeholderTextColor="#999"
-            style={searchInputStylesheets.input}
-        />
+  return (
+    <View style={searchInputStylesheets.container}>
+      <Feather name="search" size={18} color="#999" />
+
+      <TextInput
+        placeholder="Buscar aves..."
+        value={search}
+        onChangeText={(t)=> setSearch(t)}
+        placeholderTextColor="#999"
+        style={searchInputStylesheets.input}
+      />
     </View>
+  );
 }

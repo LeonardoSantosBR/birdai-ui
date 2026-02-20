@@ -17,14 +17,13 @@ export default function TabsLayout() {
           tabBarInactiveTintColor: pallete.inactive,
           tabBarStyle: {
             position: "absolute",
-            left: 16,
-            right: 16,
             height: 125,
             paddingBottom: Platform.OS === "ios" ? 10 : 8,
             paddingTop: 10,
             backgroundColor: pallete.tabBg,
             borderTopWidth: 0,
-            borderRadius: 22,
+            borderTopRightRadius: 22,
+            borderTopLeftRadius: 22,
             shadowColor: pallete.shadow,
             shadowOpacity: 0.18,
             shadowRadius: 18,
@@ -34,7 +33,7 @@ export default function TabsLayout() {
         }}
       >
         <Tabs.Screen
-          name="Catalog"
+          name="index"
           options={{
             title: "Catálogo",
             tabBarIcon: ({ color, size }) => (

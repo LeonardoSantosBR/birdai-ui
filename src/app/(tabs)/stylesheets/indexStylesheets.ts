@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-export const catalogStylesheets = StyleSheet.create({
+export const indexStylesheets = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
