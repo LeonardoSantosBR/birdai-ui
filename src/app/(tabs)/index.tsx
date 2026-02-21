@@ -3,7 +3,7 @@ import SearchInput from "@/components/searchInput/SearchInput";
 import CatalogTitle from "@/components/titles/catalog/CatalogTitle";
 import { useState } from "react";
 import { ScrollView, View } from "react-native";
-import { indexStylesheets } from "./stylesheets";
+import { indexStylesheets } from "./(tabs)_stylesheets";
 
 export default function Catalog(): React.JSX.Element {
   const [search, setSearch] = useState("");

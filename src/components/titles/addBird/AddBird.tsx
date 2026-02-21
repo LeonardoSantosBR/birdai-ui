@@ -1,5 +1,5 @@
 
-import { addBirdStylesheets } from "@/app/(tabs)/stylesheets/addBirdStylesheets";
+import { addBirdStylesheets } from "@/app/(tabs)/(tabs)_stylesheets";
 import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";
 import { Text } from "react-native";
