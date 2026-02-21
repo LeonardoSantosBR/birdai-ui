@@ -10,12 +10,13 @@ export default function Catalog(): React.JSX.Element {
   const [selected, setSelected] = useState<string[]>([]);
 
   const categories = [
-    "Urbanos",
+    "Urbano",
     "Floresta",
     "Litoral",
     "Pântano",
     "Deserto",
-    "Imigratórios"
+    "Ilha",
+    "Costa"
   ];
 
   return (
