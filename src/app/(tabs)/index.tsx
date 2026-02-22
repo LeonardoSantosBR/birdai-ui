@@ -19,7 +19,7 @@ export default function Catalog(): React.JSX.Element {
       image:
         "https://upload.wikimedia.org/wikipedia/commons/d/dc/Bem-te-vi_REFON.jpg",
       habitats: ["Urbano", "Floresta", "Litoral"],
-    },
+    }
   ];
 
   return (
