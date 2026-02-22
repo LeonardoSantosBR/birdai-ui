@@ -10,13 +10,11 @@ export default function HabitatsCard({
   setSelected: React.Dispatch<React.SetStateAction<string[]>>;
   isSelected: boolean;
 }): React.JSX.Element {
-
   function toggleCategory(category: string) {
-    setSelected(
-      (prev) =>
-        prev.includes(category)
-          ? prev.filter((item) => item !== category)
-          : [...prev, category]
+    setSelected((prev) =>
+      prev.includes(category)
+        ? prev.filter((item) => item !== category)
+        : [...prev, category]
     );
   }
 
@@ -25,7 +23,7 @@ export default function HabitatsCard({
       onPress={() => toggleCategory(item)}
       style={{
         flex: 1,
-        alignItems: 'center',
+        alignItems: "center",
         height: 35,
         backgroundColor: isSelected ? "#ff3b30" : "#e5e5e5",
         paddingHorizontal: 16,

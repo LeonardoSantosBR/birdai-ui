@@ -15,11 +15,11 @@ export default function Catalog(): React.JSX.Element {
     {
       id: 1,
       name: "Bem-te-vi",
-      scientificName: "Pitangus sulphuratus",
+      cientific_name: "Pitangus sulphuratus",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/d/dc/Bem-te-vi_REFON.jpg",
       habitats: ["Urbano", "Floresta", "Litoral"],
-    }
+    },
   ];
 
   return (
@@ -51,13 +51,7 @@ export default function Catalog(): React.JSX.Element {
       <ScrollView style={{ width: "100%", height: "75%" }}>
         <View style={{ flexDirection: "column", gap: 10 }}>
           {birdsMock.map((item, index) => {
-
-            return (
-              <BirdCard
-                key={item.id}
-                item={item}
-              />
-            );
+            return <BirdCard key={item.id} item={item} />;
           })}
         </View>
       </ScrollView>
