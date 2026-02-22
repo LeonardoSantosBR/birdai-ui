@@ -5,7 +5,6 @@ export const birdCardStylesheets = StyleSheet.create({
         flexDirection: "row",
         backgroundColor: "#fff",
         borderRadius: 16,
-        padding: 12,
         alignItems: "center",
         marginBottom: 12,
         elevation: 2
@@ -13,7 +12,8 @@ export const birdCardStylesheets = StyleSheet.create({
     image: {
         width: 90,
         height: 90,
-        borderRadius: 12,
+        borderTopLeftRadius: 12,
+        borderBottomLeftRadius: 12,
         marginRight: 12,
     }
 });

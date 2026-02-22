@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
-export default function CategoriesCard({
+export default function HabitatsCard({
   item,
   setSelected,
   isSelected,
@@ -16,7 +16,7 @@ export default function CategoriesCard({
       (prev) =>
         prev.includes(category)
           ? prev.filter((item) => item !== category)
-          : [...prev, category] 
+          : [...prev, category]
     );
   }
 
@@ -26,7 +26,7 @@ export default function CategoriesCard({
       style={{
         flex: 1,
         alignItems: 'center',
-        height: "5.5%",
+        height: 35,
         backgroundColor: isSelected ? "#ff3b30" : "#e5e5e5",
         paddingHorizontal: 16,
         paddingVertical: 8,

@@ -1,4 +1,4 @@
-export const categoriesConstant = [
+export const habitatsConstant = [
     "Urbano",
     "Floresta",
     "Litoral",
