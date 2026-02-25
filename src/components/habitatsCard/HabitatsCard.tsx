@@ -1,3 +1,4 @@
+import { pallete } from "@/themes/pallete";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
@@ -10,6 +11,7 @@ export default function HabitatsCard({
   setSelected: React.Dispatch<React.SetStateAction<string[]>>;
   isSelected: boolean;
 }): React.JSX.Element {
+  
   function toggleCategory(category: string) {
     setSelected((prev) =>
       prev.includes(category)
@@ -25,7 +27,7 @@ export default function HabitatsCard({
         flex: 1,
         alignItems: "center",
         height: 35,
-        backgroundColor: isSelected ? "#ff3b30" : "#e5e5e5",
+        backgroundColor: isSelected ? pallete.tabBg : pallete.inactive,
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 20,

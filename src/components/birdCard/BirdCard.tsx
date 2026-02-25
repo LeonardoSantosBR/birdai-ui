@@ -1,34 +1,9 @@
+import { habitatColor } from "@/helpers";
 import { Feather } from "@expo/vector-icons";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { birdCardStylesheets } from "./birdCardStylesheets";
 
 export default function BirdCard({ item }: any): React.JSX.Element {
-  function setHabitatColor(habitat: string): string {
-    switch (habitat) {
-      case "Urbano":
-        return "#6B7280";
-
-      case "Floresta":
-        return "#16A34A";
-
-      case "Litoral":
-        return "#0EA5E9";
-
-      case "Pântano":
-        return "#065F46";
-
-      case "Deserto":
-        return "#F59E0B";
-
-      case "Ilha":
-        return "#14B8A6";
-
-      case "Costa":
-        return "#1E3A8A";
-      default:
-        return "#9CA3AF";
-    }
-  }
 
   return (
     <View style={birdCardStylesheets.container}>
@@ -45,7 +20,7 @@ export default function BirdCard({ item }: any): React.JSX.Element {
             <View
               key={index}
               style={{
-                backgroundColor: setHabitatColor(habitat),
+                backgroundColor: habitatColor({habitat}),
                 paddingHorizontal: 10,
                 paddingVertical: 4,
                 borderRadius: 12,
