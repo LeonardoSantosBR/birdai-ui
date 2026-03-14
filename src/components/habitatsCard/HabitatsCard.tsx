@@ -1,7 +1,8 @@
+import { pallete } from "@/themes/pallete";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
-export default function CategoriesCard({
+export default function HabitatsCard({
   item,
   setSelected,
   isSelected,
@@ -10,13 +11,12 @@ export default function CategoriesCard({
   setSelected: React.Dispatch<React.SetStateAction<string[]>>;
   isSelected: boolean;
 }): React.JSX.Element {
-
+  
   function toggleCategory(category: string) {
-    setSelected(
-      (prev) =>
-        prev.includes(category)
-          ? prev.filter((item) => item !== category)
-          : [...prev, category] 
+    setSelected((prev) =>
+      prev.includes(category)
+        ? prev.filter((item) => item !== category)
+        : [...prev, category]
     );
   }
 
@@ -25,9 +25,9 @@ export default function CategoriesCard({
       onPress={() => toggleCategory(item)}
       style={{
         flex: 1,
-        alignItems: 'center',
-        height: "5.5%",
-        backgroundColor: isSelected ? "#ff3b30" : "#e5e5e5",
+        alignItems: "center",
+        height: 35,
+        backgroundColor: isSelected ? pallete.tabBg : pallete.inactive,
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 20,
