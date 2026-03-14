@@ -3,13 +3,13 @@ import { StyleSheet, View } from "react-native";
 
 export default function About(): React.JSX.Element {
   return (
-    <View style={[styles.container]}>
+    <View style={[aboutStylesheets.container]}>
       <AboutTitle />
     </View>
   );
 }
 
-export const styles = StyleSheet.create({
+export const aboutStylesheets = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",

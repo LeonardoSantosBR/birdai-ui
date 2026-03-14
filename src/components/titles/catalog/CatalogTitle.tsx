@@ -1,4 +1,4 @@
-import { indexStylesheets } from "@/app/(tabs)/(tabs)_stylesheets";
+import { indexStylesheets } from "@/app/(tabs)";
 import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";
 import { Text } from "react-native";

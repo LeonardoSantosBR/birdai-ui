@@ -3,13 +3,13 @@ import { StyleSheet, View } from "react-native";
 
 export default function AddBird(): React.JSX.Element {
   return (
-    <View style={[styles.container]}>
+    <View style={[addBirdStylesheets.container]}>
       <AddBirdTitle />
     </View>
   );
 }
 
-export const styles = StyleSheet.create({
+export const addBirdStylesheets = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",

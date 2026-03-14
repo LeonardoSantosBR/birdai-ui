@@ -22,7 +22,7 @@ export default function Catalog(): React.JSX.Element {
   ];
 
   return (
-    <View style={[styles.container]}>
+    <View style={[indexStylesheets.container]}>
       <CatalogTitle />
       <SearchInput search={search} setSearch={setSearch} />
 
@@ -58,7 +58,7 @@ export default function Catalog(): React.JSX.Element {
   );
 }
 
-export const styles = StyleSheet.create({
+export const indexStylesheets = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",

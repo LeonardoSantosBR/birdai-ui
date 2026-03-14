@@ -1,7 +1,8 @@
-
-import GradientText from "@/components/gradientText/GradientText";
+import MaskedView from "@react-native-masked-view/masked-view";
 import { useIsFocused } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 import { MotiView } from "moti";
+import { Text } from "react-native";
 
 export default function AboutTitle(): React.JSX.Element {
   const focused = useIsFocused();
@@ -19,7 +20,27 @@ export default function AboutTitle(): React.JSX.Element {
         duration: 500,
       }}
     >
-      <GradientText text="Sobre Mim"/>
+      <MaskedView
+        maskElement={
+          <Text
+            style={{
+              fontSize: 28,
+              fontWeight: "bold",
+              textDecorationLine: "underline",
+            }}
+          >
+            Sobre Mim
+          </Text>
+        }
+      >
+        <LinearGradient
+          colors={["#1a57ff", "#ff41e6", "#838383", "#0400ff"]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        >
+          <Text style={{ opacity: 0, fontSize: 28 }}>Sobre Mim</Text>
+        </LinearGradient>
+      </MaskedView>
     </MotiView>
   );
 }
