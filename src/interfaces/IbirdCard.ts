@@ -2,8 +2,10 @@ import { IhabitatItem } from "./IhabitatItem";
 
 export interface IBirdCard {
   id: number;
+  url: string;
   name: string;
   cientific_name: string;
-  url: string;
+  description: string;
+  created_at: string;
   birdsHabitats: IhabitatItem[];
 }
