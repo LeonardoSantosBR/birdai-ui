@@ -12,7 +12,7 @@ export const birdCardStylesheets = StyleSheet.create({
   },
   image: {
     width: 90,
-    height: 90,
+    height: '100%',
     borderTopLeftRadius: 12,
     borderBottomLeftRadius: 12,
     marginRight: 12,

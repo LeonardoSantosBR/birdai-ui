@@ -4,7 +4,6 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { birdCardStylesheets } from "./birdCardStylesheets";
 
 export default function BirdCard({ item }: any): React.JSX.Element {
-
   return (
     <View style={birdCardStylesheets.container}>
       <Image source={{ uri: item.image }} style={birdCardStylesheets.image} />
@@ -20,7 +19,7 @@ export default function BirdCard({ item }: any): React.JSX.Element {
             <View
               key={index}
               style={{
-                backgroundColor: habitatColor({habitat}),
+                backgroundColor: habitatColor({ habitat }),
                 paddingHorizontal: 10,
                 paddingVertical: 4,
                 borderRadius: 12,
@@ -46,8 +45,13 @@ export default function BirdCard({ item }: any): React.JSX.Element {
         </View>
       </View>
 
-      <View
-        style={{ justifyContent: "space-between", height: "100%", padding: 12 }}
+      <View style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "17%",
+          padding: 12,
+          marginBottom: 50
+        }}
       >
         <TouchableOpacity>
           <Feather name="edit-2" size={18} color="#666" />

@@ -4,8 +4,7 @@ import SearchInput from "@/components/searchInput/SearchInput";
 import CatalogTitle from "@/components/titles/catalog/CatalogTitle";
 import { habitatsConstant } from "@/constants";
 import { useState } from "react";
-import { ScrollView, View } from "react-native";
-import { indexStylesheets } from "./(tabs)_stylesheets";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 export default function Catalog(): React.JSX.Element {
   const [search, setSearch] = useState("");
@@ -17,13 +16,13 @@ export default function Catalog(): React.JSX.Element {
       name: "Bem-te-vi",
       cientific_name: "Pitangus sulphuratus",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/d/dc/Bem-te-vi_REFON.jpg",
+        "https://vuobzeynuqtjnrgeltmn.supabase.co/storage/v1/object/public/birdai/birds/ac789bcb-0f38-4c98-87cf-48829e69313d.jpg",
       habitats: ["Urbano", "Floresta", "Litoral"],
     }
   ];
 
   return (
-    <View style={[indexStylesheets.container]}>
+    <View style={[styles.container]}>
       <CatalogTitle />
       <SearchInput search={search} setSearch={setSearch} />
 
@@ -58,3 +57,17 @@ export default function Catalog(): React.JSX.Element {
     </View>
   );
 }
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    padding: 15,
+  },
+  title: {
+    fontSize: 27,
+    fontWeight: "bold",
+  },
+});
+
