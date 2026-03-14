@@ -1,8 +1,9 @@
-export interface IBirdCardProps {
+import { IhabitatItem } from "./IhabitatItem";
+
+export interface IBirdCard {
+  id: number;
   name: string;
-  scientificName: string;
-  image: string;
-  habitats: string[];
-  onEdit?: () => void;
-  onDelete?: () => void;
+  cientific_name: string;
+  url: string;
+  birdsHabitats: IhabitatItem[];
 }

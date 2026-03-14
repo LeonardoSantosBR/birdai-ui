@@ -2,19 +2,19 @@ import { habitats } from "@/themes/habitat";
 
 export function habitatColor({ habitat }: { habitat: string }) {
     switch (habitat) {
-      case "Urbano":
+      case "urbano":
         return habitats.urbano;
-      case "Floresta":
+      case "floresta":
         return habitats.floresta;
-      case "Litoral":
+      case "litoral":
         return habitats.litoral;
-      case "Pântano":
+      case "pântano":
         return habitats.pantano;
-      case "Deserto":
+      case "deserto":
         return habitats.deserto;
-      case "Ilha":
+      case "ilha":
         return habitats.ilha;
-      case "Costa":
+      case "costa":
         return habitats.costa;
       default:
         return habitats.default;

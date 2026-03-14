@@ -1,36 +1,43 @@
 import { habitatColor } from "@/helpers";
+import { IBirdCard } from "@/interfaces";
 import { Feather } from "@expo/vector-icons";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { birdCardStylesheets } from "./birdCardStylesheets";
 
-export default function BirdCard({ item }: any): React.JSX.Element {
+type BirdCardProps = {
+  data: IBirdCard;
+};
+
+export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
   return (
     <View style={birdCardStylesheets.container}>
-      <Image source={{ uri: item.image }} style={birdCardStylesheets.image} />
+      <Image source={{ uri: data.url }} style={birdCardStylesheets.image} />
       <View style={{ flex: 1 }}>
-        <Text style={{ fontSize: 16, fontWeight: "bold" }}>{item.name}</Text>
+        <Text style={{ fontSize: 16, fontWeight: "bold" }}>{data.name}</Text>
 
         <Text style={{ color: "#666", marginBottom: 6 }}>
-          {item.cientific_name}
+          {data.cientific_name}
         </Text>
 
         <View style={{ flexDirection: "row" }}>
-          {item.habitats.slice(0, 2)?.map((habitat, index) => (
+          {data.birdsHabitats.slice(0, 2)?.map((item, index) => (
             <View
               key={index}
               style={{
-                backgroundColor: habitatColor({ habitat }),
+                backgroundColor: habitatColor({ habitat: item.habitat.name }),
                 paddingHorizontal: 10,
                 paddingVertical: 4,
                 borderRadius: 12,
                 marginRight: 6,
               }}
             >
-              <Text style={{ color: "#fff", fontSize: 12 }}>{habitat}</Text>
+              <Text style={{ color: "#fff", fontSize: 12 }}>
+                {item.habitat.name}
+              </Text>
             </View>
           ))}
 
-          {item.habitats.length >= 2 && (
+          {data.birdsHabitats.length >= 2 && (
             <View
               style={{
                 backgroundColor: "#eee",
@@ -45,12 +52,13 @@ export default function BirdCard({ item }: any): React.JSX.Element {
         </View>
       </View>
 
-      <View style={{
+      <View
+        style={{
           flexDirection: "row",
           justifyContent: "space-between",
           width: "17%",
           padding: 12,
-          marginBottom: 50
+          marginBottom: 50,
         }}
       >
         <TouchableOpacity>
