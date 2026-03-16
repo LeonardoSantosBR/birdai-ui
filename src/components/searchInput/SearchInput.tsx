@@ -1,7 +1,6 @@
 import { pallete } from "@/themes/pallete";
 import { Feather } from "@expo/vector-icons";
-import { TextInput, View } from "react-native";
-import { searchInputStylesheets } from "./searchInputStylesheets";
+import { StyleSheet, TextInput, View } from "react-native";
 
 export default function SearchInput({
   search,
@@ -24,3 +23,22 @@ export default function SearchInput({
     </View>
   );
 }
+
+export const searchInputStylesheets = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#dadada",
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    height: 50,
+    gap: 8,
+    marginTop: 10,
+  },
+  input: {
+    color: pallete.tabBg,
+    fontSize: 17,
+    width: "100%",
+    borderRadius: 30,
+  },
+});

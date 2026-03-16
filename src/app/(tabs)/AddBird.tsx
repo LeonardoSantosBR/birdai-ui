@@ -1,4 +1,5 @@
-import AddBirdTitle from "@/components/titles/addBird/AddBird";
+
+import AddBirdTitle from "@/components/titles/AddBird";
 import { StyleSheet, View } from "react-native";
 
 export default function AddBird(): React.JSX.Element {

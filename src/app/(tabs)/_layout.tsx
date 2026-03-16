@@ -44,7 +44,7 @@ export default function TabsLayout() {
         <Tabs.Screen
           name="AddBird"
           options={{
-            title: "Adicionar",
+            title: "Nova Ave",
             tabBarIcon: ({ color, size }) => (
               <Feather name="plus-circle" size={size} color={color} />
             ),
