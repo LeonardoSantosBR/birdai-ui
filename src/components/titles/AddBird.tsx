@@ -19,7 +19,7 @@ export default function AddBirdTitle(): React.JSX.Element {
         duration: 500,
       }}
     >
-      <Text style={[addBirdStylesheets.title]}>Cadastrar Ave</Text>
+      <Text style={[addBirdStylesheets.title]}>Nova Ave</Text>
     </MotiView>
   );
 }
