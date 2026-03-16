@@ -20,7 +20,7 @@ import {
 
 export default function Catalog(): React.JSX.Element {
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(5);
+  const limit = 5;
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState<string[]>([]);
   const { data, isLoading } = useGetBirds(page, limit);
@@ -40,11 +40,6 @@ export default function Catalog(): React.JSX.Element {
     if (currentPage > 1) {
       setPage((prev) => prev - 1);
     }
-  }
-
-  function handleChangeLimit(value: number) {
-    setLimit(value);
-    setPage(1);
   }
 
   return (
