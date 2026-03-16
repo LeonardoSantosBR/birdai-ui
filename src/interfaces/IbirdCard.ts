@@ -1,4 +1,6 @@
-import { IhabitatItem } from "./IhabitatItem";
+export interface IhabitatItem {
+  habitat: { name: string };
+}
 
 export interface IBirdCard {
   id: number;
