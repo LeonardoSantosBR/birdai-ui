@@ -30,14 +30,12 @@ export default function Catalog(): React.JSX.Element {
   const currentPage = pagination?.page ?? 1;
   const lastPage = pagination?.lastPage ?? 1;
 
-  function handleNextPage() {
-    if (currentPage < lastPage) {
+  function handlePreviusOrNextPage(type: "next" | "previous") {
+    if (type === "next" && currentPage < lastPage) {
       setPage((prev) => prev + 1);
     }
-  }
 
-  function handlePrevPage() {
-    if (currentPage > 1) {
+    if (type === "previous" && currentPage > 1) {
       setPage((prev) => prev - 1);
     }
   }
@@ -80,9 +78,7 @@ export default function Catalog(): React.JSX.Element {
         ListFooterComponent={
           !isLoading && birds.length > 0 ? (
             <View style={indexStylesheets.paginationContainer}>
-              <Text style={indexStylesheets.paginationInfo}>
-                Páginas
-              </Text>
+              <Text style={indexStylesheets.paginationInfo}>Páginas</Text>
 
               <View style={indexStylesheets.paginationButtons}>
                 <TouchableOpacity
@@ -90,7 +86,7 @@ export default function Catalog(): React.JSX.Element {
                     indexStylesheets.pageButton,
                     currentPage === 1 && indexStylesheets.pageButtonDisabled,
                   ]}
-                  onPress={handlePrevPage}
+                  onPress={() => handlePreviusOrNextPage("previous")}
                   disabled={currentPage === 1}
                 >
                   <Feather name="chevron-left" size={22} color="#fff" />
@@ -106,7 +102,7 @@ export default function Catalog(): React.JSX.Element {
                     currentPage === lastPage &&
                       indexStylesheets.pageButtonDisabled,
                   ]}
-                  onPress={handleNextPage}
+                  onPress={() => handlePreviusOrNextPage("next")}
                   disabled={currentPage === lastPage}
                 >
                   <Feather name="chevron-right" size={22} color="#fff" />
