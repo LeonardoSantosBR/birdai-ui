@@ -1,5 +1,5 @@
 import BirdCard from "@/components/birdCard/BirdCard";
-import { BirdNotFound } from "@/components/birdNotFound";
+import { BirdEmpty } from "@/components/birdEmpty";
 import CategoriesCard from "@/components/habitatsCard/HabitatsCard";
 import { LoadingSpinner } from "@/components/loadingSpinner";
 import SearchInput from "@/components/searchInput/SearchInput";
@@ -52,7 +52,7 @@ export default function Catalog(): React.JSX.Element {
             </ScrollView>
           </View>
         }
-        ListEmptyComponent={isLoading ? <LoadingSpinner /> : <BirdNotFound />}
+        ListEmptyComponent={isLoading ? <LoadingSpinner /> : <BirdEmpty />}
       />
     </View>
   );

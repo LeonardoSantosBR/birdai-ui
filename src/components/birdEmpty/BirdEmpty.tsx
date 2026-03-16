@@ -1,26 +1,26 @@
 import { birdaiEmpty } from "@/assets";
 import {
-    Image,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from "react-native";
 
-export function BirdNotFound() {
+export function BirdEmpty() {
   return (
-    <View style={birdNotFoundStylesheets.container}>
-      <Image style={birdNotFoundStylesheets.image} source={birdaiEmpty} />
+    <View style={birdEmptytylesheets.container}>
+      <Image style={birdEmptytylesheets.image} source={birdaiEmpty} />
       <Text style={{ color: "#686868" }}>Nenhuma Ave no catálogo...</Text>
 
-      <TouchableOpacity style={birdNotFoundStylesheets.button}>
-        <Text style={birdNotFoundStylesheets.text}>Cadastrar</Text>
+      <TouchableOpacity style={birdEmptytylesheets.button}>
+        <Text style={birdEmptytylesheets.text}>Cadastrar</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
-export const birdNotFoundStylesheets = StyleSheet.create({
+export const birdEmptytylesheets = StyleSheet.create({
   container: {
     width: "100%",
     alignItems: "center",
