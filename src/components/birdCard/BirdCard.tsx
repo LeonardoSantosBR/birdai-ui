@@ -1,7 +1,7 @@
 import { habitatColor } from "@/helpers";
 import { IBirdCard } from "@/interfaces";
 import { Feather } from "@expo/vector-icons";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 type BirdCardProps = {
   data: IBirdCard;
@@ -9,7 +9,7 @@ type BirdCardProps = {
 
 export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
   return (
-    <View style={birdCardStylesheets.container}>
+    <Pressable style={birdCardStylesheets.container}>
       <Image source={{ uri: data.url }} style={birdCardStylesheets.image} />
 
       <View style={birdCardStylesheets.content}>
@@ -47,7 +47,7 @@ export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
           <Feather name="trash-2" size={18} color="#e63946" />
         </TouchableOpacity>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
