@@ -1,4 +1,4 @@
-import AboutTitle from "@/components/titles/about/About";
+import AboutTitle from "@/components/titles/About";
 import { StyleSheet, View } from "react-native";
 
 export default function About(): React.JSX.Element {
