@@ -62,7 +62,7 @@ export const birdCardStylesheets = StyleSheet.create({
     overflow: "hidden",
   },
   image: {
-    width: 90,
+    width: 140,
     height: "100%",
     minHeight: 110,
     borderTopLeftRadius: 16,

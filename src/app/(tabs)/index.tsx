@@ -2,20 +2,18 @@ import BirdCard from "@/components/birdCard/BirdCard";
 import { BirdEmpty } from "@/components/birdEmpty";
 import CategoriesCard from "@/components/habitatsCard/HabitatsCard";
 import { LoadingSpinner } from "@/components/loadingSpinner";
+import Pagination from "@/components/pagination/Pagination";
 import SearchInput from "@/components/searchInput/SearchInput";
 import CatalogTitle from "@/components/titles/CatalogTitle";
 import { habitatsConstant } from "@/constants";
 import { useGetBirds } from "@/hooks/birds/useGetBirds";
 import { IBirdCard } from "@/interfaces";
-import { Feather } from "@expo/vector-icons";
 import { useState } from "react";
 import {
   FlatList,
   ScrollView,
   StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
+  View
 } from "react-native";
 
 export default function Catalog(): React.JSX.Element {
@@ -29,16 +27,6 @@ export default function Catalog(): React.JSX.Element {
   const pagination = data?.pagination;
   const currentPage = pagination?.page ?? 1;
   const lastPage = pagination?.lastPage ?? 1;
-
-  function handlePreviusOrNextPage(type: "next" | "previous") {
-    if (type === "next" && currentPage < lastPage) {
-      setPage((prev) => prev + 1);
-    }
-
-    if (type === "previous" && currentPage > 1) {
-      setPage((prev) => prev - 1);
-    }
-  }
 
   return (
     <View style={indexStylesheets.container}>
@@ -77,38 +65,7 @@ export default function Catalog(): React.JSX.Element {
         ListEmptyComponent={isLoading ? <LoadingSpinner /> : <BirdEmpty />}
         ListFooterComponent={
           !isLoading && birds.length > 0 ? (
-            <View style={indexStylesheets.paginationContainer}>
-              <Text style={indexStylesheets.paginationInfo}>Páginas</Text>
-
-              <View style={indexStylesheets.paginationButtons}>
-                <TouchableOpacity
-                  style={[
-                    indexStylesheets.pageButton,
-                    currentPage === 1 && indexStylesheets.pageButtonDisabled,
-                  ]}
-                  onPress={() => handlePreviusOrNextPage("previous")}
-                  disabled={currentPage === 1}
-                >
-                  <Feather name="chevron-left" size={22} color="#fff" />
-                </TouchableOpacity>
-
-                <Text style={indexStylesheets.pageIndicator}>
-                  {currentPage} / {lastPage}
-                </Text>
-
-                <TouchableOpacity
-                  style={[
-                    indexStylesheets.pageButton,
-                    currentPage === lastPage &&
-                      indexStylesheets.pageButtonDisabled,
-                  ]}
-                  onPress={() => handlePreviusOrNextPage("next")}
-                  disabled={currentPage === lastPage}
-                >
-                  <Feather name="chevron-right" size={22} color="#fff" />
-                </TouchableOpacity>
-              </View>
-            </View>
+            <Pagination currentPage={currentPage} lastPage={lastPage} setPage={setPage}/>
           ) : null
         }
       />

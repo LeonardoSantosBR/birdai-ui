@@ -9,18 +9,18 @@ import {
 
 export function BirdEmpty() {
   return (
-    <View style={birdEmptytylesheets.container}>
-      <Image style={birdEmptytylesheets.image} source={birdaiEmpty} />
+    <View style={birdEmptyStylesheets.container}>
+      <Image style={birdEmptyStylesheets.image} source={birdaiEmpty} />
       <Text style={{ color: "#686868" }}>Nenhuma Ave no catálogo...</Text>
 
-      <TouchableOpacity style={birdEmptytylesheets.button}>
-        <Text style={birdEmptytylesheets.text}>Cadastrar</Text>
+      <TouchableOpacity style={birdEmptyStylesheets.button}>
+        <Text style={birdEmptyStylesheets.text}>Cadastrar</Text>
       </TouchableOpacity>
     </View>
   );
 }
 
-export const birdEmptytylesheets = StyleSheet.create({
+export const birdEmptyStylesheets = StyleSheet.create({
   container: {
     width: "100%",
     alignItems: "center",
