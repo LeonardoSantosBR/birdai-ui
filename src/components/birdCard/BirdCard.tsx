@@ -1,5 +1,6 @@
 import { habitatColor } from "@/helpers";
 import { IBirdCard } from "@/interfaces";
+import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
 import { Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -40,11 +41,11 @@ export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
 
       <View style={birdCardStylesheets.actions}>
         <TouchableOpacity>
-          <Feather name="edit-2" size={18} color="#666" />
+          <Feather name="edit-2" size={18} color={colors.birdCard.actionEdit} />
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Feather name="trash-2" size={18} color="#e63946" />
+          <Feather name="trash-2" size={18} color={colors.birdCard.actionDelete} />
         </TouchableOpacity>
       </View>
     </Pressable>
@@ -55,7 +56,7 @@ export const birdCardStylesheets = StyleSheet.create({
   container: {
     flexDirection: "row",
     minHeight: 110,
-    backgroundColor: "#fff",
+    backgroundColor: colors.birdCard.background,
     borderRadius: 16,
     alignItems: "center",
     marginBottom: 12,
@@ -79,7 +80,7 @@ export const birdCardStylesheets = StyleSheet.create({
     fontWeight: "bold",
   },
   subtitle: {
-    color: "#666",
+    color: colors.birdCard.subtitle,
     marginBottom: 6,
   },
   tagsContainer: {
@@ -93,11 +94,11 @@ export const birdCardStylesheets = StyleSheet.create({
     marginRight: 6,
   },
   tagText: {
-    color: "#fff",
+    color: colors.birdCard.tagText,
     fontSize: 12,
   },
   moreTag: {
-    backgroundColor: "#eee",
+    backgroundColor: colors.birdCard.moreTagBackground,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 12,

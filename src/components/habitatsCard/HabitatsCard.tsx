@@ -1,4 +1,4 @@
-import { pallete } from "@/themes/pallete";
+import { colors } from "@/themes";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
@@ -27,7 +27,7 @@ export default function HabitatsCard({
         flex: 1,
         alignItems: "center",
         height: 35,
-        backgroundColor: isSelected ? pallete.tabBg : pallete.inactive,
+        backgroundColor: isSelected ? colors.mainPalette.color1 : colors.mainPalette.color3,
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 20,
@@ -35,7 +35,7 @@ export default function HabitatsCard({
     >
       <Text
         style={{
-          color: "#333",
+          color: colors.habitatsCard.text,
           fontWeight: "600",
         }}
       >

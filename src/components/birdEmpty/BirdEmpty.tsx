@@ -1,4 +1,5 @@
 import { birdaiEmpty } from "@/assets";
+import { colors } from "@/themes";
 import {
   Image,
   StyleSheet,
@@ -11,7 +12,7 @@ export function BirdEmpty() {
   return (
     <View style={birdEmptyStylesheets.container}>
       <Image style={birdEmptyStylesheets.image} source={birdaiEmpty} />
-      <Text style={{ color: "#686868" }}>Nenhuma Ave no catálogo...</Text>
+      <Text style={{ color: colors.birdEmpty.text }}>Nenhuma Ave no catálogo...</Text>
 
       <TouchableOpacity style={birdEmptyStylesheets.button}>
         <Text style={birdEmptyStylesheets.text}>Cadastrar</Text>
@@ -32,7 +33,7 @@ export const birdEmptyStylesheets = StyleSheet.create({
     height: 180,
   },
    button: {
-    backgroundColor: "#E53935",
+    backgroundColor: colors.birdEmpty.buttonBackground,
     paddingVertical: 14,
     borderRadius: 12,
     alignItems: "center",
@@ -41,7 +42,7 @@ export const birdEmptyStylesheets = StyleSheet.create({
     marginTop: 16,
   },
   text: {
-    color: "#fff",
+    color: colors.birdEmpty.buttonText,
     fontSize: 16,
     fontWeight: "600",
   },

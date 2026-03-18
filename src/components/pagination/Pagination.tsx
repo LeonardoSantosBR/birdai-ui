@@ -1,4 +1,4 @@
-import { pallete } from "@/themes/pallete";
+import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -32,7 +32,7 @@ export default function Pagination({
           onPress={() => handlePreviusOrNextPage("previous")}
           disabled={currentPage === 1}
         >
-          <Feather name="chevron-left" size={22} color={pallete.inactive} />
+          <Feather name="chevron-left" size={22} color={colors.mainPalette.color3} />
         </TouchableOpacity>
 
         <Text style={paginationStylesheets.pageIndicator}>
@@ -48,7 +48,7 @@ export default function Pagination({
           onPress={() => handlePreviusOrNextPage("next")}
           disabled={currentPage === lastPage}
         >
-          <Feather name="chevron-right" size={22} color={pallete.inactive} />
+          <Feather name="chevron-right" size={22} color={colors.mainPalette.color3} />
         </TouchableOpacity>
       </View>
     </View>
@@ -60,7 +60,7 @@ export const paginationStylesheets = StyleSheet.create({
     marginTop: 24,
     paddingTop: 16,
     borderTopWidth: 1,
-    borderTopColor: pallete.inactive,
+    borderTopColor: colors.mainPalette.color3,
     gap: 12,
   },
   paginationButtons: {
@@ -70,7 +70,7 @@ export const paginationStylesheets = StyleSheet.create({
     gap: 16,
   },
   pageButton: {
-    backgroundColor: pallete.tabBg,
+    backgroundColor: colors.mainPalette.color1,
     width: 40,
     height: 40,
     borderRadius: 10,
@@ -78,11 +78,11 @@ export const paginationStylesheets = StyleSheet.create({
     alignItems: "center",
   },
   pageButtonDisabled: {
-    backgroundColor: pallete.pink,
+    backgroundColor: colors.pagination.buttonDisabled,
   },
   pageIndicator: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#333",
+    color: colors.pagination.indicatorText,
   },
 });

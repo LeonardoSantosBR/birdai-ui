@@ -8,6 +8,7 @@ import CatalogTitle from "@/components/titles/CatalogTitle";
 import { habitatsConstant } from "@/constants";
 import { useDebounce, useGetBirds } from "@/hooks";
 import { IBirdCard } from "@/interfaces";
+import { colors } from "@/themes";
 import { useEffect, useState } from "react";
 import { FlatList, ScrollView, StyleSheet, View } from "react-native";
 
@@ -82,7 +83,7 @@ export const indexStylesheets = StyleSheet.create({
     flex: 1,
     width: "100%",
     padding: 15,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: colors.index.background,
   },
   title: {
     fontSize: 27,
@@ -103,41 +104,6 @@ export const indexStylesheets = StyleSheet.create({
     textAlign: "center",
     marginTop: 24,
     fontSize: 16,
-    color: "#666",
-  },
-  paginationContainer: {
-    marginTop: 24,
-    paddingTop: 16,
-    borderTopWidth: 1,
-    borderTopColor: "#eee",
-    alignItems: "center",
-    gap: 12,
-  },
-  paginationInfo: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#222",
-  },
-  paginationButtons: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 16,
-  },
-  pageButton: {
-    backgroundColor: "#e53935",
-    width: 40,
-    height: 40,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  pageButtonDisabled: {
-    backgroundColor: "#f3a6a4",
-  },
-  pageIndicator: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#333",
-  },
+    color: colors.index.emptyText,
+  }
 });

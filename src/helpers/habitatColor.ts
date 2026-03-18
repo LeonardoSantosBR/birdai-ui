@@ -1,4 +1,4 @@
-import { habitats } from "@/themes/habitat";
+import { habitats } from "@/themes";
 
 export function habitatColor({ habitat }: { habitat: string }) {
     switch (habitat) {

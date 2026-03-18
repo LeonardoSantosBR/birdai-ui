@@ -1,5 +1,5 @@
 import Header from "@/components/header/Header";
-import { pallete } from "@/themes/pallete";
+import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { Platform, View } from "react-native";
@@ -13,18 +13,18 @@ export default function TabsLayout() {
           headerShown: false,
           tabBarShowLabel: true,
           tabBarLabelStyle: { fontSize: 13, marginTop: 1, fontWeight: "900" },
-          tabBarActiveTintColor: pallete.active,
-          tabBarInactiveTintColor: pallete.inactive,
+          tabBarActiveTintColor: colors.mainPalette.color2,
+          tabBarInactiveTintColor: colors.mainPalette.color3,
           tabBarStyle: {
             position: "absolute",
             height: 125,
             paddingBottom: Platform.OS === "ios" ? 10 : 8,
             paddingTop: 10,
-            backgroundColor: pallete.tabBg,
+            backgroundColor: colors.mainPalette.color1,
             borderTopWidth: 0,
             borderTopRightRadius: 22,
             borderTopLeftRadius: 22,
-            shadowColor: pallete.shadow,
+            shadowColor: colors.mainPalette.color4,
             shadowOpacity: 0.18,
             shadowRadius: 18,
             shadowOffset: { width: 0, height: 10 },
