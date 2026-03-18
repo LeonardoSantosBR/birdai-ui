@@ -6,22 +6,23 @@ import Pagination from "@/components/pagination/Pagination";
 import SearchInput from "@/components/searchInput/SearchInput";
 import CatalogTitle from "@/components/titles/CatalogTitle";
 import { habitatsConstant } from "@/constants";
-import { useGetBirds } from "@/hooks/birds/useGetBirds";
+import { useDebounce, useGetBirds } from "@/hooks";
 import { IBirdCard } from "@/interfaces";
-import { useState } from "react";
-import {
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  View
-} from "react-native";
+import { useEffect, useState } from "react";
+import { FlatList, ScrollView, StyleSheet, View } from "react-native";
 
 export default function Catalog(): React.JSX.Element {
   const [page, setPage] = useState(1);
   const limit = 5;
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState<string[]>([]);
-  const { data, isLoading } = useGetBirds(page, limit);
+  const debouncedSearch = useDebounce(search, 500);
+
+  useEffect(() => {
+    setPage(1);
+  }, [debouncedSearch]);
+
+  const { data, isLoading } = useGetBirds(page, limit, debouncedSearch);
 
   const birds = data?.rows ?? [];
   const pagination = data?.pagination;
@@ -49,7 +50,6 @@ export default function Catalog(): React.JSX.Element {
             >
               {habitatsConstant.map((item, index) => {
                 const isSelected = selected.includes(item);
-
                 return (
                   <CategoriesCard
                     key={index}
@@ -65,7 +65,11 @@ export default function Catalog(): React.JSX.Element {
         ListEmptyComponent={isLoading ? <LoadingSpinner /> : <BirdEmpty />}
         ListFooterComponent={
           !isLoading && birds.length > 0 ? (
-            <Pagination currentPage={currentPage} lastPage={lastPage} setPage={setPage}/>
+            <Pagination
+              currentPage={currentPage}
+              lastPage={lastPage}
+              setPage={setPage}
+            />
           ) : null
         }
       />

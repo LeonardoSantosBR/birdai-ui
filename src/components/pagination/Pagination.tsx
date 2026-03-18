@@ -11,6 +11,7 @@ export default function Pagination({
   lastPage: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }): React.JSX.Element {
+  
   function handlePreviusOrNextPage(type: "next" | "previous") {
     if (type === "next" && currentPage < lastPage) {
       setPage((prev) => prev + 1);
@@ -23,7 +24,6 @@ export default function Pagination({
   return (
     <View style={paginationStylesheets.paginationContainer}>
       <View style={paginationStylesheets.paginationButtons}>
-        <Text style={paginationStylesheets.paginationInfo}>Páginas: </Text>
         <TouchableOpacity
           style={[
             paginationStylesheets.pageButton,
@@ -62,11 +62,6 @@ export const paginationStylesheets = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: pallete.inactive,
     gap: 12,
-  },
-  paginationInfo: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: pallete.shadow,
   },
   paginationButtons: {
     flexDirection: "row",
