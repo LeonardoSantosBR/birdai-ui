@@ -1,3 +1,4 @@
+import { pallete } from "@/themes/pallete";
 import { Feather } from "@expo/vector-icons";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -10,7 +11,6 @@ export default function Pagination({
   lastPage: number;
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }): React.JSX.Element {
-
   function handlePreviusOrNextPage(type: "next" | "previous") {
     if (type === "next" && currentPage < lastPage) {
       setPage((prev) => prev + 1);
@@ -22,9 +22,8 @@ export default function Pagination({
 
   return (
     <View style={paginationStylesheets.paginationContainer}>
-      <Text style={paginationStylesheets.paginationInfo}>Páginas</Text>
-
       <View style={paginationStylesheets.paginationButtons}>
+        <Text style={paginationStylesheets.paginationInfo}>Páginas: </Text>
         <TouchableOpacity
           style={[
             paginationStylesheets.pageButton,
@@ -33,7 +32,7 @@ export default function Pagination({
           onPress={() => handlePreviusOrNextPage("previous")}
           disabled={currentPage === 1}
         >
-          <Feather name="chevron-left" size={22} color="#fff" />
+          <Feather name="chevron-left" size={22} color={pallete.inactive} />
         </TouchableOpacity>
 
         <Text style={paginationStylesheets.pageIndicator}>
@@ -49,7 +48,7 @@ export default function Pagination({
           onPress={() => handlePreviusOrNextPage("next")}
           disabled={currentPage === lastPage}
         >
-          <Feather name="chevron-right" size={22} color="#fff" />
+          <Feather name="chevron-right" size={22} color={pallete.inactive} />
         </TouchableOpacity>
       </View>
     </View>
@@ -61,14 +60,13 @@ export const paginationStylesheets = StyleSheet.create({
     marginTop: 24,
     paddingTop: 16,
     borderTopWidth: 1,
-    borderTopColor: "#eee",
-    alignItems: "center",
+    borderTopColor: pallete.inactive,
     gap: 12,
   },
   paginationInfo: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#222",
+    color: pallete.shadow,
   },
   paginationButtons: {
     flexDirection: "row",
@@ -77,7 +75,7 @@ export const paginationStylesheets = StyleSheet.create({
     gap: 16,
   },
   pageButton: {
-    backgroundColor: "#e53935",
+    backgroundColor: pallete.tabBg,
     width: 40,
     height: 40,
     borderRadius: 10,
@@ -85,7 +83,7 @@ export const paginationStylesheets = StyleSheet.create({
     alignItems: "center",
   },
   pageButtonDisabled: {
-    backgroundColor: "#f3a6a4",
+    backgroundColor: pallete.pink,
   },
   pageIndicator: {
     fontSize: 16,

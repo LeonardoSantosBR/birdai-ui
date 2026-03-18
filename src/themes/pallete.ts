@@ -3,4 +3,5 @@ export const pallete = {
   active: "#ffa52f",
   inactive: "rgba(255,255,255,0.75)",
   shadow: "#000000",
+  pink: "#f3a6a4"
 };
