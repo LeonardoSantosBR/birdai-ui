@@ -1,8 +1,15 @@
-import { habitatColor } from "@/helpers";
 import { IBirdCard } from "@/interfaces";
 import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
-import { Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { router } from "expo-router";
+import {
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 type BirdCardProps = {
   data: IBirdCard;
@@ -15,19 +22,21 @@ export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
 
       <View style={birdCardStylesheets.content}>
         <Text style={birdCardStylesheets.title}>{data.name}</Text>
-
         <Text style={birdCardStylesheets.subtitle}>{data.cientific_name}</Text>
-
         <View style={birdCardStylesheets.tagsContainer}>
           {data.birdsHabitats.slice(0, 2).map((item, index) => (
             <View
               key={index}
               style={[
                 birdCardStylesheets.tag,
-                { backgroundColor: habitatColor({ habitat: item.habitat.name }) },
+                {
+                  backgroundColor: item.habitat.color,
+                },
               ]}
             >
-              <Text style={birdCardStylesheets.tagText}>{item.habitat.name}</Text>
+              <Text style={birdCardStylesheets.tagText}>
+                {item.habitat.name}
+              </Text>
             </View>
           ))}
 
@@ -40,12 +49,23 @@ export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
       </View>
 
       <View style={birdCardStylesheets.actions}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            router.push({
+              pathname: "/birds/[id]/UpdateBird",
+              params: { id: String(data.id) },
+            })
+          }
+        >
           <Feather name="edit-2" size={18} color={colors.birdCard.actionEdit} />
         </TouchableOpacity>
 
         <TouchableOpacity>
-          <Feather name="trash-2" size={18} color={colors.birdCard.actionDelete} />
+          <Feather
+            name="trash-2"
+            size={18}
+            color={colors.birdCard.actionDelete}
+          />
         </TouchableOpacity>
       </View>
     </Pressable>
@@ -82,6 +102,7 @@ export const birdCardStylesheets = StyleSheet.create({
   subtitle: {
     color: colors.birdCard.subtitle,
     marginBottom: 6,
+    fontFamily: "monospace"
   },
   tagsContainer: {
     flexDirection: "row",

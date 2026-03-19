@@ -1,5 +1,5 @@
 export interface IhabitatItem {
-  habitat: { name: string };
+  habitat: { name: string; color: string };
 }
 
 export interface IBirdCard {

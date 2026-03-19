@@ -1,3 +1,4 @@
+import { Ihabitats } from "@/interfaces";
 import { colors } from "@/themes";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
@@ -7,27 +8,27 @@ export default function HabitatsCard({
   setSelected,
   isSelected,
 }: {
-  item: string;
-  setSelected: React.Dispatch<React.SetStateAction<string[]>>;
+  item: Ihabitats;
+  setSelected: React.Dispatch<React.SetStateAction<number[]>>;
   isSelected: boolean;
 }): React.JSX.Element {
   
-  function toggleCategory(category: string) {
+  function toggleCategory(id: number) {
     setSelected((prev) =>
-      prev.includes(category)
-        ? prev.filter((item) => item !== category)
-        : [...prev, category]
+      prev.includes(id)
+        ? prev.filter((item) => item !== id)
+        : [...prev, id]
     );
   }
 
   return (
     <TouchableOpacity
-      onPress={() => toggleCategory(item)}
+      onPress={() => toggleCategory(item.id)}
       style={{
         flex: 1,
         alignItems: "center",
         height: 35,
-        backgroundColor: isSelected ? colors.mainPalette.color1 : colors.mainPalette.color3,
+        backgroundColor: isSelected ? colors.habitatsCard.selected : colors.mainPalette.white,
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 20,
@@ -35,12 +36,14 @@ export default function HabitatsCard({
     >
       <Text
         style={{
+          fontFamily: "sans-serif-medium",
           color: colors.habitatsCard.text,
           fontWeight: "600",
         }}
       >
-        {item}
+        {item.name}
       </Text>
     </TouchableOpacity>
   );
 }
+

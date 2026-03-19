@@ -1,13 +1,13 @@
 import BirdCard from "@/components/birdCard/BirdCard";
 import { BirdEmpty } from "@/components/birdEmpty";
-import CategoriesCard from "@/components/habitatsCard/HabitatsCard";
+import HabitatsCard from "@/components/habitatsCard/HabitatsCard";
 import { LoadingSpinner } from "@/components/loadingSpinner";
 import Pagination from "@/components/pagination/Pagination";
 import SearchInput from "@/components/searchInput/SearchInput";
 import CatalogTitle from "@/components/titles/CatalogTitle";
-import { habitatsConstant } from "@/constants";
 import { useDebounce, useGetBirds } from "@/hooks";
-import { IBirdCard } from "@/interfaces";
+import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
+import { IBirdCard, Ihabitats } from "@/interfaces";
 import { colors } from "@/themes";
 import { useEffect, useState } from "react";
 import { FlatList, ScrollView, StyleSheet, View } from "react-native";
@@ -16,17 +16,27 @@ export default function Catalog(): React.JSX.Element {
   const [page, setPage] = useState(1);
   const limit = 5;
   const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState<string[]>([]);
+  const [habitatsSelected, setHabitatsSelected] = useState<number[]>([]);
   const debouncedSearch = useDebounce(search, 500);
 
   useEffect(() => {
     setPage(1);
   }, [debouncedSearch]);
 
-  const { data, isLoading } = useGetBirds(page, limit, debouncedSearch);
+  const { data: birdsData, isLoading: isBirdsFetchLoading } = useGetBirds(
+    page,
+    limit,
+    debouncedSearch,
+    habitatsSelected
+  );
 
-  const birds = data?.rows ?? [];
-  const pagination = data?.pagination;
+  console.log(birdsData)
+
+  const { data: habitatsData } = useGetHabitats();
+
+  const birds = birdsData?.rows ?? [];
+  const habitats = habitatsData?.rows ?? [];
+  const pagination = birdsData?.pagination;
   const currentPage = pagination?.page ?? 1;
   const lastPage = pagination?.lastPage ?? 1;
 
@@ -49,13 +59,13 @@ export default function Catalog(): React.JSX.Element {
               style={indexStylesheets.categoriesScroll}
               contentContainerStyle={indexStylesheets.categoriesContent}
             >
-              {habitatsConstant.map((item, index) => {
-                const isSelected = selected.includes(item);
+              {habitats?.map((item: Ihabitats, index: number) => {
+                const isSelected = habitatsSelected.includes(item.id);
                 return (
-                  <CategoriesCard
+                  <HabitatsCard
                     key={index}
                     item={item}
-                    setSelected={setSelected}
+                    setSelected={setHabitatsSelected}
                     isSelected={isSelected}
                   />
                 );
@@ -63,9 +73,11 @@ export default function Catalog(): React.JSX.Element {
             </ScrollView>
           </View>
         }
-        ListEmptyComponent={isLoading ? <LoadingSpinner /> : <BirdEmpty />}
+        ListEmptyComponent={
+          isBirdsFetchLoading ? <LoadingSpinner /> : <BirdEmpty />
+        }
         ListFooterComponent={
-          !isLoading && birds.length > 0 ? (
+          !isBirdsFetchLoading && birds.length > 0 ? (
             <Pagination
               currentPage={currentPage}
               lastPage={lastPage}
@@ -105,5 +117,5 @@ export const indexStylesheets = StyleSheet.create({
     marginTop: 24,
     fontSize: 16,
     color: colors.index.emptyText,
-  }
+  },
 });

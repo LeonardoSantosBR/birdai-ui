@@ -1,9 +1,9 @@
 export const colors = {
   mainPalette: {
-    color1: "#D72B2B",
-    color2: "#ffa52f",
-    color3: "rgba(255,255,255,0.75)",
-    color4: "#000000",
+    red: "#D72B2B",
+    orange: "#ffa52f",
+    white: "rgba(255,255,255,0.75)",
+    black: "#000000",
   },
   index: {
     background: "#f5f5f5",
@@ -24,6 +24,7 @@ export const colors = {
   },
   habitatsCard: {
     text: "#333333",
+    selected: "#f3a6a4"
   },
   pagination: {
     indicatorText: "#333333",
@@ -32,5 +33,8 @@ export const colors = {
   searchInput: {
     icon: "#999999",
     background: "#DADADA",
+  },
+  update: {
+    background: "#f5f5f5",
   },
 };

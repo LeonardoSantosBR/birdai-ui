@@ -18,7 +18,7 @@ export default function SearchInput({
         placeholder="Buscar aves..."
         value={search}
         onChangeText={(t) => setSearch(t)}
-        placeholderTextColor={colors.mainPalette.color1}
+        placeholderTextColor={colors.mainPalette.red}
         style={searchInputStylesheets.input}
       />
     </View>
@@ -37,7 +37,7 @@ export const searchInputStylesheets = StyleSheet.create({
     marginTop: 10,
   },
   input: {
-    color: colors.mainPalette.color1,
+    color: colors.mainPalette.red,
     fontSize: 17,
     width: "100%",
     borderRadius: 30,

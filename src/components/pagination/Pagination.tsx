@@ -32,7 +32,7 @@ export default function Pagination({
           onPress={() => handlePreviusOrNextPage("previous")}
           disabled={currentPage === 1}
         >
-          <Feather name="chevron-left" size={22} color={colors.mainPalette.color3} />
+          <Feather name="chevron-left" size={22} color={colors.mainPalette.white} />
         </TouchableOpacity>
 
         <Text style={paginationStylesheets.pageIndicator}>
@@ -48,7 +48,7 @@ export default function Pagination({
           onPress={() => handlePreviusOrNextPage("next")}
           disabled={currentPage === lastPage}
         >
-          <Feather name="chevron-right" size={22} color={colors.mainPalette.color3} />
+          <Feather name="chevron-right" size={22} color={colors.mainPalette.white} />
         </TouchableOpacity>
       </View>
     </View>
@@ -60,7 +60,7 @@ export const paginationStylesheets = StyleSheet.create({
     marginTop: 24,
     paddingTop: 16,
     borderTopWidth: 1,
-    borderTopColor: colors.mainPalette.color3,
+    borderTopColor: colors.mainPalette.white,
     gap: 12,
   },
   paginationButtons: {
@@ -70,7 +70,7 @@ export const paginationStylesheets = StyleSheet.create({
     gap: 16,
   },
   pageButton: {
-    backgroundColor: colors.mainPalette.color1,
+    backgroundColor: colors.mainPalette.red,
     width: 40,
     height: 40,
     borderRadius: 10,
