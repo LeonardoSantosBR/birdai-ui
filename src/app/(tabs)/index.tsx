@@ -30,8 +30,6 @@ export default function Catalog(): React.JSX.Element {
     habitatsSelected
   );
 
-  console.log(birdsData)
-
   const { data: habitatsData } = useGetHabitats();
 
   const birds = birdsData?.rows ?? [];
