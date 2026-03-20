@@ -5,11 +5,13 @@ import { LoadingSpinner } from "@/components/loadingSpinner";
 import Pagination from "@/components/pagination/Pagination";
 import SearchInput from "@/components/searchInput/SearchInput";
 import CatalogTitle from "@/components/titles/CatalogTitle";
+import { normalizePagination } from "@/helpers";
 import { useDebounce, useGetBirds } from "@/hooks";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
+import { useSetPage } from "@/hooks/useSetPage";
 import { IBirdCard, Ihabitats } from "@/interfaces";
 import { colors } from "@/themes";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FlatList, ScrollView, StyleSheet, View } from "react-native";
 
 export default function Catalog(): React.JSX.Element {
@@ -18,10 +20,7 @@ export default function Catalog(): React.JSX.Element {
   const [search, setSearch] = useState("");
   const [habitatsSelected, setHabitatsSelected] = useState<number[]>([]);
   const debouncedSearch = useDebounce(search, 500);
-
-  useEffect(() => {
-    setPage(1);
-  }, [debouncedSearch]);
+  useSetPage(setPage, [debouncedSearch, JSON.stringify(habitatsSelected)]);
 
   const { data: birdsData, isLoading: isBirdsFetchLoading } = useGetBirds(
     page,
@@ -29,14 +28,16 @@ export default function Catalog(): React.JSX.Element {
     debouncedSearch,
     habitatsSelected
   );
-
+  
   const { data: habitatsData } = useGetHabitats();
 
-  const birds = birdsData?.rows ?? [];
-  const habitats = habitatsData?.rows ?? [];
-  const pagination = birdsData?.pagination;
-  const currentPage = pagination?.page ?? 1;
-  const lastPage = pagination?.lastPage ?? 1;
+  const {
+    rows: birds,
+    currentPage,
+    lastPage,
+  } = normalizePagination<IBirdCard>(birdsData);
+
+  const { rows: habitats } = normalizePagination<Ihabitats>(habitatsData);
 
   return (
     <View style={indexStylesheets.container}>
