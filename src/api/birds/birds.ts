@@ -16,3 +16,8 @@ export async function getBirds(
   });
   return response.data;
 }
+
+export async function getBirdsById(id: number) {
+  const response = await api.get(`birds/${id}`);
+  return response.data;
+}
