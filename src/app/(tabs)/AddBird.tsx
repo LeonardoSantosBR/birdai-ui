@@ -51,12 +51,21 @@ export default function AddBird(): React.JSX.Element {
       await mutateAsync(form);
       router.back();
     } catch (e) {
-      console.log(e)
+      console.log(e);
       Alert.alert("Erro", "Não foi possível criar nova Ave.");
     }
   };
 
-  const handleCancel = () => router.back();
+  const handleCancel = () => {
+    setForm({
+      name: "",
+      url: "",
+      cientific_name: "",
+      description: "",
+      birdsHabitats: [],
+    });
+    router.back();
+  };
 
   const handlePickImage = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
