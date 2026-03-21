@@ -29,7 +29,7 @@ export async function patchBirdsById(id: number, body: FormData) {
 }
 
 export async function postBirds(body: FormData) {
-  return api.patch("birds", body, {
+  return api.post("birds", body, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 }

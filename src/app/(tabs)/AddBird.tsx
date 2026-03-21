@@ -51,6 +51,7 @@ export default function AddBird(): React.JSX.Element {
       await mutateAsync(form);
       router.back();
     } catch (e) {
+      console.log(e)
       Alert.alert("Erro", "Não foi possível criar nova Ave.");
     }
   };

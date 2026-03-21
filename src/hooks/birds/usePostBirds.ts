@@ -4,14 +4,14 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export function usePostBirds() {
   const queryClient = useQueryClient();
-
+   
   return useMutation({
     mutationFn: async (form: IBirdForm) => {
       const formData = new FormData();
       formData.append("name", form.name);
       formData.append("cientific_name", form.cientific_name);
       formData.append("description", form.description);
-      formData.append("habitats", JSON.stringify(form.birdsHabitats));
+      form.birdsHabitats.length > 0 && formData.append("habitats", JSON.stringify(form.birdsHabitats));
 
       // the file is only attached if the user has modified the image.
       if (form.url.startsWith("file://")) {
