@@ -228,7 +228,7 @@ export const addBirdStylesheets = StyleSheet.create({
     width: "100%",
     height: "100%",
     backgroundColor: colors.addBird.background,
-    padding: 10,
+    padding: 15,
   },
   title: {
     fontSize: 27,
