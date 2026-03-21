@@ -1,4 +1,3 @@
-
 export const colors = {
   mainPalette: {
     red: "#D72B2B",
@@ -38,6 +37,27 @@ export const colors = {
   updateBird: {
     primary: "#D94040",
     primaryDark: "#296811",
+    background: "#F5F5F5",
+    imageBackground: "#E0E0E0",
+    imagePlaceholderBackground: "#EEEEEE",
+    changeImageButtonBackground: "rgba(0,0,0,0.55)",
+    changeImageTextColor: "#FFFFFF",
+    saveTextColor: "#FFFFFF",
+    surface: "#FFFFFF",
+    border: "#E0E0E0",
+    textPrimary: "#1A1A1A",
+    textSecondary: "#757575",
+    textPlaceholder: "#BDBDBD",
+    chipDefault: "#EEEEEE",
+    chipDefaultText: "#424242",
+    chipSelected: "#D94040",
+    chipSelectedText: "#FFFFFF",
+    cancel: "#FFFFFF",
+    cancelBorder: "#CCCCCC",
+    cancelText: "#424242",
+  },
+  addBird: {
+    primary: "#D94040",
     background: "#F5F5F5",
     imageBackground: "#E0E0E0",
     imagePlaceholderBackground: "#EEEEEE",
