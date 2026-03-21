@@ -21,3 +21,9 @@ export async function getBirdsById(id: number) {
   const response = await api.get(`birds/${id}`);
   return response.data;
 }
+
+export async function patchBirdsById(id: number, body: FormData) {
+  return api.patch(`/birds/${id}`, body, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+}

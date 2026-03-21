@@ -123,7 +123,7 @@ export const updateBirdStylesheets = StyleSheet.create({
   },
   saveButton: {
     flex: 1,
-    backgroundColor: "green",
+    backgroundColor: colors.mainPalette.red,
     borderRadius: 8,
     paddingVertical: 13,
     alignItems: "center",

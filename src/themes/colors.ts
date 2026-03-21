@@ -37,7 +37,7 @@ export const colors = {
   },
   updateBird: {
     primary: "#D94040",
-    primaryDark: "#B83232",
+    primaryDark: "#296811",
     background: "#F5F5F5",
     imageBackground: "#E0E0E0",
     imagePlaceholderBackground: "#EEEEEE",

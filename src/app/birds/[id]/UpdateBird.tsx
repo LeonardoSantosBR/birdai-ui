@@ -1,12 +1,13 @@
 import { normalizePagination } from "@/helpers";
 import { useGetBirdsById } from "@/hooks/birds/useGetBirdsById";
+import { usePatchBirdsById } from "@/hooks/birds/usePatchBirds";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
 import { IBirdForm, Ihabitats } from "@/interfaces";
 import { colors } from "@/themes";
+import * as ImagePicker from "expo-image-picker";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import {
-  ActivityIndicator,
   Alert,
   Image,
   ScrollView,
@@ -22,8 +23,7 @@ export default function UpdateBird(): React.JSX.Element {
   const { data } = useGetBirdsById(+id);
   const { data: habitatsData } = useGetHabitats();
   const { rows: habitats } = normalizePagination<Ihabitats>(habitatsData);
-
-  const [saving, setSaving] = useState(false);
+  const { mutateAsync, isPending } = usePatchBirdsById(+id);
   const router = useRouter();
 
   const [form, setForm] = useState<IBirdForm>({
@@ -52,13 +52,36 @@ export default function UpdateBird(): React.JSX.Element {
     });
   };
 
-  const handleSave = async () => {};
+  const handleUpdate = async () => {
+    try {
+      await mutateAsync(form);
+      router.back();
+    } catch (e) {
+      Alert.alert("Erro", "Não foi possível salvar as alterações.");
+    }
+  };
 
   const handleCancel = () => router.back();
 
-  const handleChangeImage = () => {
-    // TODO: integrar com expo-image-picker
-    Alert.alert("Alterar imagem", "Integre com expo-image-picker aqui.");
+  //open gallery
+  const handleChangeImage = async () => {
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (status !== "granted") {
+      Alert.alert(
+        "Permissão negada",
+        "Precisamos de acesso à galeria para alterar a imagem."
+      );
+      return;
+    }
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ["images"],
+      allowsEditing: true,
+      aspect: [16, 9],
+      quality: 0.8,
+    });
+
+    if (!result.canceled)
+      setForm((prev) => ({ ...prev, url: result.assets[0].uri }));
   };
 
   return (
@@ -109,7 +132,6 @@ export default function UpdateBird(): React.JSX.Element {
               placeholderTextColor={colors.updateBird.textPlaceholder}
             />
           </View>
-
           <View style={updateBirdStylesheets.field}>
             <Text style={updateBirdStylesheets.label}>Nome científico</Text>
             <TextInput
@@ -122,7 +144,6 @@ export default function UpdateBird(): React.JSX.Element {
               placeholderTextColor={colors.updateBird.textPlaceholder}
             />
           </View>
-
           <View style={updateBirdStylesheets.field}>
             <Text style={updateBirdStylesheets.label}>Descrição</Text>
             <TextInput
@@ -131,7 +152,7 @@ export default function UpdateBird(): React.JSX.Element {
                 updateBirdStylesheets.textArea,
               ]}
               value={form.description}
-              onChangeText={(v) => setForm((p) => ({ ...p, decription: v }))}
+              onChangeText={(v) => setForm((p) => ({ ...p, description: v }))}
               placeholder="Descrição da ave..."
               placeholderTextColor={colors.updateBird.textPlaceholder}
               multiline
@@ -139,7 +160,6 @@ export default function UpdateBird(): React.JSX.Element {
               textAlignVertical="top"
             />
           </View>
-
           <View style={updateBirdStylesheets.field}>
             <Text style={updateBirdStylesheets.label}>Habitates</Text>
             <View style={updateBirdStylesheets.chipsRow}>
@@ -172,7 +192,6 @@ export default function UpdateBird(): React.JSX.Element {
             </View>
           </View>
         </View>
-
         <View style={updateBirdStylesheets.actions}>
           <TouchableOpacity
             style={updateBirdStylesheets.cancelButton}
@@ -181,23 +200,18 @@ export default function UpdateBird(): React.JSX.Element {
           >
             <Text style={updateBirdStylesheets.cancelText}>Cancelar</Text>
           </TouchableOpacity>
-
           <TouchableOpacity
             style={[
               updateBirdStylesheets.saveButton,
-              saving && updateBirdStylesheets.saveButtonDisabled,
+              isPending && updateBirdStylesheets.saveButtonDisabled,
             ]}
-            onPress={handleSave}
-            disabled={saving}
+            onPress={handleUpdate}
+            disabled={isPending}
             activeOpacity={0.85}
           >
-            {saving ? (
-              <ActivityIndicator color="#FFF" size="small" />
-            ) : (
-              <Text style={updateBirdStylesheets.saveText}>
-                Salvar alterações
-              </Text>
-            )}
+            <Text style={updateBirdStylesheets.saveText}>
+              Salvar alterações
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
