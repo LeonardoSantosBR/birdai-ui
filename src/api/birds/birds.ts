@@ -34,3 +34,7 @@ export async function postBirds(body: FormData) {
   });
 }
 
+export async function deleteBirdsById(id: number) {
+  const response = await api.delete(`birds/${id}`);
+  return response.data;
+}

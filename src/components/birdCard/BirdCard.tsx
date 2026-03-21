@@ -1,8 +1,10 @@
+import { useDeleteBirdsById } from "@/hooks";
 import { IBirdCard } from "@/interfaces";
 import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
 import { router } from "expo-router";
 import {
+  Alert,
   Image,
   Pressable,
   StyleSheet,
@@ -16,6 +18,36 @@ type BirdCardProps = {
 };
 
 export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
+  const { mutateAsync } = useDeleteBirdsById(data.id);
+
+  const handleUpdate = () => {
+    const pathName = "/birds/[id]/UpdateBird";
+    router.push({
+      pathname: pathName,
+      params: { id: String(data.id) },
+    });
+  };
+
+  const handleDelete = () => {
+    Alert.alert(
+      "Excluir ave",
+      `Tem certeza que deseja excluir "${data.name}"?`,
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Excluir",
+          style: "destructive",
+          onPress: () => {
+            mutateAsync(data.id);
+          },
+        },
+      ]
+    );
+  };
+
   return (
     <Pressable style={birdCardStylesheets.container}>
       <Image source={{ uri: data.url }} style={birdCardStylesheets.image} />
@@ -23,15 +55,14 @@ export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
       <View style={birdCardStylesheets.content}>
         <Text style={birdCardStylesheets.title}>{data.name}</Text>
         <Text style={birdCardStylesheets.subtitle}>{data.cientific_name}</Text>
+
         <View style={birdCardStylesheets.tagsContainer}>
           {data.birdsHabitats.slice(0, 2).map((item, index) => (
             <View
               key={index}
               style={[
                 birdCardStylesheets.tag,
-                {
-                  backgroundColor: item.habitat.color,
-                },
+                { backgroundColor: item.habitat.color },
               ]}
             >
               <Text style={birdCardStylesheets.tagText}>
@@ -49,18 +80,11 @@ export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
       </View>
 
       <View style={birdCardStylesheets.actions}>
-        <TouchableOpacity
-          onPress={() =>
-            router.push({
-              pathname: "/birds/[id]/UpdateBird",
-              params: { id: String(data.id) },
-            })
-          }
-        >
+        <TouchableOpacity onPress={() => handleUpdate()}>
           <Feather name="edit-2" size={18} color={colors.birdCard.actionEdit} />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => handleDelete()}>
           <Feather
             name="trash-2"
             size={18}
@@ -102,7 +126,7 @@ export const birdCardStylesheets = StyleSheet.create({
   subtitle: {
     color: colors.birdCard.subtitle,
     marginBottom: 6,
-    fontFamily: "monospace"
+    fontFamily: "monospace",
   },
   tagsContainer: {
     flexDirection: "row",
