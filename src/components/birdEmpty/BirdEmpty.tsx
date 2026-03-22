@@ -4,7 +4,6 @@ import {
   Image,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View
 } from "react-native";
 
@@ -12,11 +11,7 @@ export function BirdEmpty() {
   return (
     <View style={birdEmptyStylesheets.container}>
       <Image style={birdEmptyStylesheets.image} source={birdaiEmpty} />
-      <Text style={{ color: colors.birdEmpty.text }}>Nenhuma Ave no catálogo...</Text>
-
-      <TouchableOpacity style={birdEmptyStylesheets.button}>
-        <Text style={birdEmptyStylesheets.text}>Cadastrar</Text>
-      </TouchableOpacity>
+      <Text style={{ color: colors.birdEmpty.text }}>Nenhuma Ave encontrada...</Text>
     </View>
   );
 }
@@ -31,15 +26,6 @@ export const birdEmptyStylesheets = StyleSheet.create({
   image: {
     width: "100%",
     height: 180,
-  },
-   button: {
-    backgroundColor: colors.birdEmpty.buttonBackground,
-    paddingVertical: 14,
-    borderRadius: 12,
-    alignItems: "center",
-    justifyContent: "center",
-    width: "30%",
-    marginTop: 16,
   },
   text: {
     color: colors.birdEmpty.buttonText,
