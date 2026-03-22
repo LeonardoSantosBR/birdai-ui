@@ -77,4 +77,8 @@ export const colors = {
     cancelBorder: "#CCCCCC",
     cancelText: "#424242",
   },
+  aboutMe: {
+    background: "#F5F5F5",
+    descriptionColor: "#333",
+  },
 };
