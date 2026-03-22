@@ -17,7 +17,7 @@ export default function About(): React.JSX.Element {
         <Text style={aboutStylesheets.description}>
           Sou um desenvolvedor full stack mobile júnior apaixonado por tecnologia e movido pela curiosidade de aprender cada vez mais. 
           Além disso, tenho uma grande admiração e observação por pássaros, o que me inspirou a unir esse interesse pessoal com minha evolução profissional. 
-          Foi assim que surgiu o BirdAI, um projeto criado com o objetivo de aprofundar meus conhecimentos em desenvolvimento mobile utilizando React Native e outras tecnologias como
+          Foi assim que surgiu o Birdai, um projeto criado com o objetivo de aprofundar meus conhecimentos em desenvolvimento mobile utilizando React Native e outras tecnologias como
           NestJs, PostgresSql, PrismaJs e etc.
         </Text>
       </View>
