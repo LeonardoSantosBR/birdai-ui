@@ -11,7 +11,7 @@ export const updateBirdStylesheets = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingBottom: 32,
+    paddingBottom: 80,
   },
   imageContainer: {
     position: "relative",
