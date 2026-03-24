@@ -10,9 +10,9 @@ import { useDebounce, useGetBirds } from "@/hooks";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
 import { useSetPage } from "@/hooks/useSetPage";
 import { IBirdCard, Ihabitats } from "@/interfaces";
-import { colors } from "@/themes";
 import { useState } from "react";
-import { FlatList, ScrollView, StyleSheet, View } from "react-native";
+import { FlatList, ScrollView, View } from "react-native";
+import { indexStylesheets } from "../(tabs)_stylesheets";
 
 export default function Catalog(): React.JSX.Element {
   const [page, setPage] = useState(1);
@@ -88,33 +88,3 @@ export default function Catalog(): React.JSX.Element {
     </View>
   );
 }
-
-export const indexStylesheets = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: "100%",
-    padding: 15,
-    backgroundColor: colors.index.background,
-  },
-  title: {
-    fontSize: 27,
-    fontWeight: "bold",
-  },
-  categoriesScroll: {
-    marginVertical: 10,
-  },
-  categoriesContent: {
-    gap: 10,
-    paddingRight: 10,
-    marginBottom: 10,
-  },
-  listContent: {
-    paddingBottom: 120,
-  },
-  emptyText: {
-    textAlign: "center",
-    marginTop: 24,
-    fontSize: 16,
-    color: colors.index.emptyText,
-  },
-});
