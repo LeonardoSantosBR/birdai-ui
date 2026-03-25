@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { useIsFocused } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
@@ -29,7 +30,7 @@ export  function AboutTitle(): React.JSX.Element {
               textDecorationLine: "underline",
             }}
           >
-            Sobre Mim
+            {t`Sobre Mim`}
           </Text>
         }
       >
@@ -38,7 +39,7 @@ export  function AboutTitle(): React.JSX.Element {
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
         >
-          <Text style={{ opacity: 0, fontSize: 28 }}>Sobre Mim</Text>
+          <Text style={{ opacity: 0, fontSize: 28 }}>{t`Sobre Mim`}</Text>
         </LinearGradient>
       </MaskedView>
     </MotiView>

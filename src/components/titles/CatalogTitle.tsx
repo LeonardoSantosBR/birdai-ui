@@ -1,4 +1,5 @@
 import { indexStylesheets } from "@/app/(tabs)_stylesheets";
+import { t } from "@lingui/core/macro";
 import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";
 import { Text } from "react-native";
@@ -19,7 +20,7 @@ export function CatalogTitle(): React.JSX.Element {
         duration: 500,
       }}
     >
-      <Text style={[indexStylesheets.title]}>Catálogo</Text>
+      <Text style={[indexStylesheets.title]}>{t`Catálogo`}</Text>
     </MotiView>
   );
 }

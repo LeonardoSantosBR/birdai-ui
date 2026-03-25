@@ -1,4 +1,5 @@
 import { addBirdStylesheets } from "@/app/(tabs)_stylesheets";
+import { t } from "@lingui/core/macro";
 import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";
 import { Text } from "react-native";
@@ -19,7 +20,7 @@ export function AddBirdTitle(): React.JSX.Element {
         duration: 500,
       }}
     >
-      <Text style={[addBirdStylesheets.title]}>Nova Ave</Text>
+      <Text style={[addBirdStylesheets.title]}>{t`Nova Ave`}</Text>
     </MotiView>
   );
 }
