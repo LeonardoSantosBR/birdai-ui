@@ -1,14 +1,14 @@
-import { normalizePagination } from "@/helpers";
+import { HabitatsOptions } from "@/components";
+import { UpdateBirdFormActions } from "@/components/updateBirdFormActions";
+import { normalizePagination, pickGalleryImage } from "@/helpers";
 import { useGetBirdsById } from "@/hooks/birds/useGetBirdsById";
-import { usePatchBirdsById } from "@/hooks/birds/usePatchBirds";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
 import { IBirdForm, Ihabitats } from "@/interfaces";
 import { colors } from "@/themes";
-import * as ImagePicker from "expo-image-picker";
-import { useLocalSearchParams, useRouter } from "expo-router";
+import { t } from "@lingui/core/macro";
+import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import {
-  Alert,
   Image,
   ScrollView,
   Text,
@@ -23,8 +23,6 @@ export default function UpdateBird(): React.JSX.Element {
   const { data } = useGetBirdsById(+id);
   const { data: habitatsData } = useGetHabitats();
   const { rows: habitats } = normalizePagination<Ihabitats>(habitatsData);
-  const { mutateAsync, isPending } = usePatchBirdsById(+id);
-  const router = useRouter();
 
   const [form, setForm] = useState<IBirdForm>({
     name: "",
@@ -37,52 +35,6 @@ export default function UpdateBird(): React.JSX.Element {
   useEffect(() => {
     if (data) setForm(data);
   }, [data]);
-
-  const toggleHabitat = (habitatId: number) => {
-    setForm((prev) => {
-      const already = prev.birdsHabitats.some(
-        (x) => x.habitat_id === habitatId
-      );
-      return {
-        ...prev,
-        birdsHabitats: already
-          ? prev.birdsHabitats.filter((x) => x.habitat_id !== habitatId)
-          : [...prev.birdsHabitats, { habitat_id: habitatId }],
-      };
-    });
-  };
-
-  const handleUpdate = async () => {
-    try {
-      await mutateAsync(form);
-      router.back();
-    } catch (e) {
-      Alert.alert("Erro", "Não foi possível salvar as alterações.");
-    }
-  };
-
-  const handleCancel = () => router.back();
-
-  //open gallery
-  const handleChangeImage = async () => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert(
-        "Permissão negada",
-        "Precisamos de acesso à galeria para alterar a imagem."
-      );
-      return;
-    }
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ["images"],
-      allowsEditing: true,
-      aspect: [16, 9],
-      quality: 0.8,
-    });
-
-    if (!result.canceled)
-      setForm((prev) => ({ ...prev, url: result.assets[0].uri }));
-  };
 
   return (
     <View style={updateBirdStylesheets.container}>
@@ -111,29 +63,29 @@ export default function UpdateBird(): React.JSX.Element {
           )}
           <TouchableOpacity
             style={updateBirdStylesheets.changeImageButton}
-            onPress={handleChangeImage}
+            onPress={() => pickGalleryImage(setForm)}
             activeOpacity={0.85}
           >
             <Text style={updateBirdStylesheets.cameraIcon}>📷</Text>
             <Text style={updateBirdStylesheets.changeImageText}>
-              Alterar imagem
+              {t`Alterar imagem`}
             </Text>
           </TouchableOpacity>
         </View>
 
         <View style={updateBirdStylesheets.fields}>
           <View style={updateBirdStylesheets.field}>
-            <Text style={updateBirdStylesheets.label}>Nome</Text>
+            <Text style={updateBirdStylesheets.label}>{t`Nome`}</Text>
             <TextInput
               style={updateBirdStylesheets.input}
               value={form.name}
               onChangeText={(v) => setForm((p) => ({ ...p, name: v }))}
-              placeholder="Nome da ave"
+              placeholder={t`Nome da ave`}
               placeholderTextColor={colors.updateBird.textPlaceholder}
             />
           </View>
           <View style={updateBirdStylesheets.field}>
-            <Text style={updateBirdStylesheets.label}>Nome científico</Text>
+            <Text style={updateBirdStylesheets.label}>{t`Nome científico`}</Text>
             <TextInput
               style={updateBirdStylesheets.input}
               value={form.cientific_name}
@@ -145,7 +97,7 @@ export default function UpdateBird(): React.JSX.Element {
             />
           </View>
           <View style={updateBirdStylesheets.field}>
-            <Text style={updateBirdStylesheets.label}>Descrição</Text>
+            <Text style={updateBirdStylesheets.label}>{t`Descrição`}</Text>
             <TextInput
               style={[
                 updateBirdStylesheets.input,
@@ -153,7 +105,7 @@ export default function UpdateBird(): React.JSX.Element {
               ]}
               value={form.description}
               onChangeText={(v) => setForm((p) => ({ ...p, description: v }))}
-              placeholder="Descrição da ave..."
+              placeholder={t`Descrição da ave...`}
               placeholderTextColor={colors.updateBird.textPlaceholder}
               multiline
               numberOfLines={4}
@@ -161,7 +113,7 @@ export default function UpdateBird(): React.JSX.Element {
             />
           </View>
           <View style={updateBirdStylesheets.field}>
-            <Text style={updateBirdStylesheets.label}>Habitates</Text>
+            <Text style={updateBirdStylesheets.label}>{t`Habitates`}</Text>
             <View style={updateBirdStylesheets.chipsRow}>
               {habitats.map((habitat) => {
                 const birdHabitat = form.birdsHabitats.find(
@@ -169,51 +121,20 @@ export default function UpdateBird(): React.JSX.Element {
                 );
                 const has = !!birdHabitat;
                 return (
-                  <TouchableOpacity
+                  <HabitatsOptions
+                    has={has}
                     key={habitat.id}
-                    onPress={() => toggleHabitat(habitat.id)}
-                    style={[
-                      updateBirdStylesheets.chip,
-                      has && { backgroundColor: habitat.color },
-                    ]}
-                    activeOpacity={0.75}
-                  >
-                    <Text
-                      style={[
-                        updateBirdStylesheets.chipText,
-                        has && updateBirdStylesheets.chipTextSelected,
-                      ]}
-                    >
-                      {habitat.name}
-                    </Text>
-                  </TouchableOpacity>
+                    id={habitat.id}
+                    setForm={setForm}
+                    color={habitat.color}
+                    name={habitat.name}
+                  />
                 );
               })}
             </View>
           </View>
         </View>
-        <View style={updateBirdStylesheets.actions}>
-          <TouchableOpacity
-            style={updateBirdStylesheets.cancelButton}
-            onPress={handleCancel}
-            activeOpacity={0.8}
-          >
-            <Text style={updateBirdStylesheets.cancelText}>Cancelar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              updateBirdStylesheets.saveButton,
-              isPending && updateBirdStylesheets.saveButtonDisabled,
-            ]}
-            onPress={handleUpdate}
-            disabled={isPending}
-            activeOpacity={0.85}
-          >
-            <Text style={updateBirdStylesheets.saveText}>
-              Salvar alterações
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <UpdateBirdFormActions id={+id} form={form} />
       </ScrollView>
     </View>
   );

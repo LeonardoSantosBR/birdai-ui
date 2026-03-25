@@ -2,6 +2,7 @@ import { useDeleteBirdsById } from "@/hooks";
 import { IBirdCard } from "@/interfaces";
 import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
+import { t } from "@lingui/core/macro";
 import { router } from "expo-router";
 import {
   Alert,
@@ -30,15 +31,15 @@ export function BirdCard({ data }: BirdCardProps): React.JSX.Element {
 
   const handleDelete = () => {
     Alert.alert(
-      "Excluir ave",
-      `Tem certeza que deseja excluir "${data.name}"?`,
+      t`Excluir ave`,
+      t`Tem certeza que deseja excluir "${data.name}"?`,
       [
         {
-          text: "Cancelar",
+          text: t`Cancelar`,
           style: "cancel",
         },
         {
-          text: "Excluir",
+          text: t`Excluir`,
           style: "destructive",
           onPress: () => {
             mutateAsync(data.id);
@@ -53,8 +54,10 @@ export function BirdCard({ data }: BirdCardProps): React.JSX.Element {
       <Image source={{ uri: data.url }} style={birdCardStylesheets.image} />
 
       <View style={birdCardStylesheets.content}>
-        <Text style={birdCardStylesheets.title}>{data.name}</Text>
-        <Text style={birdCardStylesheets.subtitle}>{data.cientific_name}</Text>
+        <Text style={birdCardStylesheets.title}>{t`${data.name}`}</Text>
+        <Text style={birdCardStylesheets.subtitle}>
+          {t`${data.cientific_name}`}
+        </Text>
 
         <View style={birdCardStylesheets.tagsContainer}>
           {data.birdsHabitats.slice(0, 2).map((item, index) => (
@@ -66,7 +69,7 @@ export function BirdCard({ data }: BirdCardProps): React.JSX.Element {
               ]}
             >
               <Text style={birdCardStylesheets.tagText}>
-                {item.habitat.name}
+                {t`${item.habitat.name}`}
               </Text>
             </View>
           ))}
