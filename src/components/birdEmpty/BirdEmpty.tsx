@@ -7,7 +7,7 @@ import {
   View
 } from "react-native";
 
-export function BirdEmpty() {
+export function BirdEmpty(): React.JSX.Element {
   return (
     <View style={birdEmptyStylesheets.container}>
       <Image style={birdEmptyStylesheets.image} source={birdaiEmpty} />

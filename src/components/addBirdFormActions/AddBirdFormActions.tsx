@@ -11,7 +11,7 @@ export function AddBirdFormActions({
 }: {
   form: IBirdForm;
   setForm: React.Dispatch<React.SetStateAction<IBirdForm>>;
-}) {
+}): React.JSX.Element {
   const { mutateAsync, isPending } = usePostBirds();
   const router = useRouter();
 

@@ -16,7 +16,7 @@ export function HabitatsOptions({
   setForm: React.Dispatch<React.SetStateAction<IBirdForm>>;
   color: string;
   name: string;
-}) {
+}): React.JSX.Element {
   return (
     <TouchableOpacity
       key={id}
