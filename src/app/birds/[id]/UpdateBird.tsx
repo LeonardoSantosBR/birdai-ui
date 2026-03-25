@@ -85,7 +85,9 @@ export default function UpdateBird(): React.JSX.Element {
             />
           </View>
           <View style={updateBirdStylesheets.field}>
-            <Text style={updateBirdStylesheets.label}>{t`Nome científico`}</Text>
+            <Text
+              style={updateBirdStylesheets.label}
+            >{t`Nome científico`}</Text>
             <TextInput
               style={updateBirdStylesheets.input}
               value={form.cientific_name}
