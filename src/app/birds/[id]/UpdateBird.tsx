@@ -1,5 +1,4 @@
-import { HabitatsOptions } from "@/components";
-import { UpdateBirdFormActions } from "@/components/updateBirdFormActions";
+import { HabitatsOptions, UpdateBirdFormActions } from "@/components";
 import { normalizePagination, pickGalleryImage } from "@/helpers";
 import { useGetBirdsById } from "@/hooks/birds/useGetBirdsById";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
