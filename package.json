@@ -47,6 +47,7 @@
     "react-native-worklets": "0.5.1"
   },
   "devDependencies": {
+    "@lingui/babel-plugin-lingui-macro": "^5.9.3",
     "@lingui/cli": "^5.9.3",
     "@lingui/macro": "^5.9.3",
     "@types/react": "~19.1.0",

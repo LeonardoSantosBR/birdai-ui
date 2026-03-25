@@ -1,10 +1,11 @@
+import HabitatsOptions from "@/components/habitatsOptions/HabitatsOptions";
 import AddBirdTitle from "@/components/titles/AddBird";
-import { normalizePagination } from "@/helpers";
+import { normalizePagination, pickGalleryImage } from "@/helpers";
 import { usePostBirds } from "@/hooks";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
 import { IBirdForm, Ihabitats } from "@/interfaces";
 import { colors } from "@/themes";
-import * as ImagePicker from "expo-image-picker";
+import { t } from "@lingui/core/macro";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
@@ -14,7 +15,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 import { addBirdStylesheets } from "../(tabs)_stylesheets";
 
@@ -32,27 +33,13 @@ export default function AddBird(): React.JSX.Element {
     birdsHabitats: [],
   });
 
-  const toggleHabitat = (habitatId: number) => {
-    setForm((prev) => {
-      const already = prev.birdsHabitats.some(
-        (x) => x.habitat_id === habitatId
-      );
-      return {
-        ...prev,
-        birdsHabitats: already
-          ? prev.birdsHabitats.filter((x) => x.habitat_id !== habitatId)
-          : [...prev.birdsHabitats, { habitat_id: habitatId }],
-      };
-    });
-  };
-
   const handleCreate = async () => {
     try {
       await mutateAsync(form);
       router.back();
     } catch (e) {
       console.log(e);
-      Alert.alert("Erro", "Não foi possível criar nova Ave.");
+      Alert.alert(t`Erro, Não foi possível criar nova Ave.`);
     }
   };
 
@@ -65,26 +52,6 @@ export default function AddBird(): React.JSX.Element {
       birdsHabitats: [],
     });
     router.back();
-  };
-
-  const handlePickImage = async () => {
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (status !== "granted") {
-      Alert.alert(
-        "Permissão negada",
-        "Precisamos de acesso à galeria para adicionar a imagem."
-      );
-      return;
-    }
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ["images"],
-      allowsEditing: true,
-      aspect: [16, 9],
-      quality: 0.8,
-    });
-
-    if (!result.canceled)
-      setForm((prev) => ({ ...prev, url: result.assets[0].uri }));
   };
 
   return (
@@ -116,31 +83,30 @@ export default function AddBird(): React.JSX.Element {
           )}
           <TouchableOpacity
             style={addBirdStylesheets.changeImageButton}
-            onPress={handlePickImage}
+            onPress={() => pickGalleryImage(setForm)}
             activeOpacity={0.85}
           >
             <Text style={addBirdStylesheets.cameraIcon}>📷</Text>
             <Text style={addBirdStylesheets.changeImageText}>
-              Adicionar imagem
+              {t`Adicionar imagem`}
             </Text>
           </TouchableOpacity>
         </View>
 
-        {/* Fields */}
         <View style={addBirdStylesheets.fields}>
           <View style={addBirdStylesheets.field}>
-            <Text style={addBirdStylesheets.label}>Nome</Text>
+            <Text style={addBirdStylesheets.label}>{t`Nome`}</Text>
             <TextInput
               style={addBirdStylesheets.input}
               value={form.name}
               onChangeText={(v) => setForm((p) => ({ ...p, name: v }))}
-              placeholder="Nome da ave"
+              placeholder={t`Nome da ave`}
               placeholderTextColor={colors.updateBird.textPlaceholder}
             />
           </View>
 
           <View style={addBirdStylesheets.field}>
-            <Text style={addBirdStylesheets.label}>Nome científico</Text>
+            <Text style={addBirdStylesheets.label}>{t`Nome científico`}</Text>
             <TextInput
               style={addBirdStylesheets.input}
               value={form.cientific_name}
@@ -152,12 +118,12 @@ export default function AddBird(): React.JSX.Element {
             />
           </View>
           <View style={addBirdStylesheets.field}>
-            <Text style={addBirdStylesheets.label}>Descrição</Text>
+            <Text style={addBirdStylesheets.label}>{t`Descrição`}</Text>
             <TextInput
               style={[addBirdStylesheets.input, addBirdStylesheets.textArea]}
               value={form.description}
               onChangeText={(v) => setForm((p) => ({ ...p, description: v }))}
-              placeholder="Descrição da ave..."
+              placeholder={t`Descrição da ave...`}
               placeholderTextColor={colors.updateBird.textPlaceholder}
               multiline
               numberOfLines={4}
@@ -166,31 +132,21 @@ export default function AddBird(): React.JSX.Element {
           </View>
 
           <View style={addBirdStylesheets.field}>
-            <Text style={addBirdStylesheets.label}>Habitates</Text>
+            <Text style={addBirdStylesheets.label}>{t`Habitates`}</Text>
             <View style={addBirdStylesheets.chipsRow}>
               {habitats.map((habitat) => {
                 const has = form.birdsHabitats.some(
                   (x) => x.habitat_id === habitat.id
                 );
                 return (
-                  <TouchableOpacity
+                  <HabitatsOptions
+                    has={has}
                     key={habitat.id}
-                    onPress={() => toggleHabitat(habitat.id)}
-                    style={[
-                      addBirdStylesheets.chip,
-                      has && { backgroundColor: habitat.color },
-                    ]}
-                    activeOpacity={0.75}
-                  >
-                    <Text
-                      style={[
-                        addBirdStylesheets.chipText,
-                        has && addBirdStylesheets.chipTextSelected,
-                      ]}
-                    >
-                      {habitat.name}
-                    </Text>
-                  </TouchableOpacity>
+                    id={habitat.id}
+                    setForm={setForm}
+                    color={habitat.color}
+                    name={habitat.name}
+                  />
                 );
               })}
             </View>
@@ -203,7 +159,7 @@ export default function AddBird(): React.JSX.Element {
             onPress={handleCancel}
             activeOpacity={0.8}
           >
-            <Text style={addBirdStylesheets.cancelText}>Cancelar</Text>
+            <Text style={addBirdStylesheets.cancelText}>{t`Cancelar`}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[
@@ -214,7 +170,7 @@ export default function AddBird(): React.JSX.Element {
             disabled={isPending}
             activeOpacity={0.85}
           >
-            <Text style={addBirdStylesheets.saveText}>Criar ave</Text>
+            <Text style={addBirdStylesheets.saveText}>{t`Criar ave`}</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

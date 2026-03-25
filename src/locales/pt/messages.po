@@ -13,7 +13,59 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/app/(tabs)/About.tsx:21
+#: src/app/(tabs)/AddBird.tsx:90
+msgid "Adicionar imagem"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:171
+msgid "Cancelar"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:182
+msgid "Criar ave"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:120
+msgid "Descrição"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:125
+msgid "Descrição da ave..."
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:41
+msgid "Erro, Não foi possível criar nova Ave."
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:156
+msgid "habitat.name"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:134
+msgid "Habitates"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:97
+msgid "Nome"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:108
+msgid "Nome científico"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:102
+msgid "Nome da ave"
+msgstr ""
+
+#: src/helpers/pickGalleryImage.ts:12
+msgid "Permissão negada"
+msgstr ""
+
+#: src/helpers/pickGalleryImage.ts:13
+msgid "Precisamos de acesso à galeria para adicionar a imagem."
+msgstr ""
+
+#: src/app/(tabs)/About.tsx:20
 msgid ""
 "Sou um desenvolvedor full stack mobile júnior apaixonado por\n"
 "          tecnologia e movido pela curiosidade de aprender cada vez mais. Além\n"

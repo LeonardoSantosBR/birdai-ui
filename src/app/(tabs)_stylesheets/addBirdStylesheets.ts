@@ -105,8 +105,6 @@ export const addBirdStylesheets = StyleSheet.create({
     color: colors.addBird.chipSelectedText,
     fontWeight: "700",
   },
-
-  // Actions
   actions: {
     flexDirection: "row",
     gap: 12,
