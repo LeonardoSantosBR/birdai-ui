@@ -4,7 +4,7 @@ import { IBirdForm } from "@/interfaces";
 import { t } from "@lingui/core/macro";
 import { Text, TouchableOpacity } from "react-native";
 
-export default function HabitatsOptions({
+export function HabitatsOptions({
   has,
   id,
   setForm,

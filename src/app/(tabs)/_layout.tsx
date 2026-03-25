@@ -1,4 +1,5 @@
-import Header from "@/components/header/Header";
+
+import { Header } from "@/components";
 import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
 import { Tabs } from "expo-router";

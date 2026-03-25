@@ -17,7 +17,7 @@ type BirdCardProps = {
   data: IBirdCard;
 };
 
-export default function BirdCard({ data }: BirdCardProps): React.JSX.Element {
+export function BirdCard({ data }: BirdCardProps): React.JSX.Element {
   const { mutateAsync } = useDeleteBirdsById(data.id);
 
   const handleUpdate = () => {

@@ -4,7 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { MotiView } from "moti";
 import { Text } from "react-native";
 
-export default function AboutTitle(): React.JSX.Element {
+export  function AboutTitle(): React.JSX.Element {
   const focused = useIsFocused();
 
   return (

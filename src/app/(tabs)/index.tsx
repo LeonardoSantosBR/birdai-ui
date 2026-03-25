@@ -1,10 +1,12 @@
-import BirdCard from "@/components/birdCard/BirdCard";
-import { BirdEmpty } from "@/components/birdEmpty";
-import HabitatsCard from "@/components/habitatsCard/HabitatsCard";
-import { LoadingSpinner } from "@/components/loadingSpinner";
-import Pagination from "@/components/pagination/Pagination";
-import SearchInput from "@/components/searchInput/SearchInput";
-import CatalogTitle from "@/components/titles/CatalogTitle";
+import {
+  BirdCard,
+  BirdEmpty,
+  HabitatsCard,
+  LoadingSpinner,
+  Pagination,
+  SearchInput
+} from "@/components";
+import { CatalogTitle } from "@/components/titles";
 import { normalizePagination } from "@/helpers";
 import { useDebounce, useGetBirds } from "@/hooks";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
@@ -28,7 +30,7 @@ export default function Catalog(): React.JSX.Element {
     debouncedSearch,
     habitatsSelected
   );
-  
+
   const { data: habitatsData } = useGetHabitats();
 
   const {

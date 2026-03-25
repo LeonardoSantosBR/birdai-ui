@@ -3,7 +3,7 @@ import { colors } from "@/themes";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
-export default function HabitatsCard({
+export function HabitatsCard({
   item,
   setSelected,
   isSelected,

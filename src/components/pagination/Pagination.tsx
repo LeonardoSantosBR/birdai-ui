@@ -2,7 +2,7 @@ import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function Pagination({
+export function Pagination({
   currentPage,
   lastPage,
   setPage,

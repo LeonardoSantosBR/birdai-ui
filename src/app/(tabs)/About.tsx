@@ -1,5 +1,5 @@
 import { me } from "@/assets";
-import AboutTitle from "@/components/titles/About";
+import { AboutTitle } from "@/components/titles";
 import { t } from '@lingui/core/macro';
 import { Image, Text, View } from "react-native";
 import { aboutStylesheets } from "../(tabs)_stylesheets";

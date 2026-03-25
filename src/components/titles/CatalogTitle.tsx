@@ -3,7 +3,7 @@ import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";
 import { Text } from "react-native";
 
-export default function CatalogTitle(): React.JSX.Element {
+export function CatalogTitle(): React.JSX.Element {
   const focused = useIsFocused();
 
   return (

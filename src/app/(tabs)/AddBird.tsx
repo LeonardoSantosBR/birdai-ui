@@ -1,29 +1,25 @@
-import HabitatsOptions from "@/components/habitatsOptions/HabitatsOptions";
-import AddBirdTitle from "@/components/titles/AddBird";
+
+import { AddBirdFormActions, HabitatsOptions } from "@/components";
+import { AddBirdTitle } from "@/components/titles";
 import { normalizePagination, pickGalleryImage } from "@/helpers";
-import { usePostBirds } from "@/hooks";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
 import { IBirdForm, Ihabitats } from "@/interfaces";
 import { colors } from "@/themes";
 import { t } from "@lingui/core/macro";
-import { useRouter } from "expo-router";
 import { useState } from "react";
 import {
-  Alert,
   Image,
   ScrollView,
   Text,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { addBirdStylesheets } from "../(tabs)_stylesheets";
 
 export default function AddBird(): React.JSX.Element {
   const { data: habitatsData } = useGetHabitats();
   const { rows: habitats } = normalizePagination<Ihabitats>(habitatsData);
-  const { mutateAsync, isPending } = usePostBirds();
-  const router = useRouter();
 
   const [form, setForm] = useState<IBirdForm>({
     name: "",
@@ -32,27 +28,6 @@ export default function AddBird(): React.JSX.Element {
     description: "",
     birdsHabitats: [],
   });
-
-  const handleCreate = async () => {
-    try {
-      await mutateAsync(form);
-      router.back();
-    } catch (e) {
-      console.log(e);
-      Alert.alert(t`Erro, Não foi possível criar nova Ave.`);
-    }
-  };
-
-  const handleCancel = () => {
-    setForm({
-      name: "",
-      url: "",
-      cientific_name: "",
-      description: "",
-      birdsHabitats: [],
-    });
-    router.back();
-  };
 
   return (
     <View style={addBirdStylesheets.container}>
@@ -153,26 +128,7 @@ export default function AddBird(): React.JSX.Element {
           </View>
         </View>
 
-        <View style={addBirdStylesheets.actions}>
-          <TouchableOpacity
-            style={addBirdStylesheets.cancelButton}
-            onPress={handleCancel}
-            activeOpacity={0.8}
-          >
-            <Text style={addBirdStylesheets.cancelText}>{t`Cancelar`}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              addBirdStylesheets.saveButton,
-              isPending && addBirdStylesheets.saveButtonDisabled,
-            ]}
-            onPress={handleCreate}
-            disabled={isPending}
-            activeOpacity={0.85}
-          >
-            <Text style={addBirdStylesheets.saveText}>{t`Criar ave`}</Text>
-          </TouchableOpacity>
-        </View>
+        <AddBirdFormActions form={form} setForm={setForm}/>
       </ScrollView>
     </View>
   );

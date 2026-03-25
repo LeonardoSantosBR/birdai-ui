@@ -2,7 +2,7 @@ import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
 import { StyleSheet, TextInput, View } from "react-native";
 
-export default function SearchInput({
+export function SearchInput({
   search,
   setSearch,
 }: {

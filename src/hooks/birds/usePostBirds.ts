@@ -7,7 +7,6 @@ export function usePostBirds() {
    
   return useMutation({
     mutationFn: async (form: IBirdForm) => {
-      console.log("form",form)
       const formData = new FormData();
       formData.append("name", form.name);
       formData.append("cientific_name", form.cientific_name);
@@ -25,6 +24,7 @@ export function usePostBirds() {
           type: fileType,
         } as any);
       }
+      console.log("aqui",formData)
 
       return postBirds(formData);
     },
