@@ -7,6 +7,7 @@ export const aboutStylesheets = StyleSheet.create({
     width: "100%",
     padding: 15,
     backgroundColor: colors.screens.aboutMe.background,
+    paddingBottom: 140,
   },
   title: {
     fontSize: 27,
