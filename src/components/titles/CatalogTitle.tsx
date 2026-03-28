@@ -1,9 +1,10 @@
-import { indexStylesheets } from "@/app/(tabs)";
+import { indexStylesheets } from "@/app/(tabs)_stylesheets";
+import { t } from "@lingui/core/macro";
 import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";
 import { Text } from "react-native";
 
-export default function CatalogTitle(): React.JSX.Element {
+export function CatalogTitle(): React.JSX.Element {
   const focused = useIsFocused();
 
   return (
@@ -19,7 +20,7 @@ export default function CatalogTitle(): React.JSX.Element {
         duration: 500,
       }}
     >
-      <Text style={[indexStylesheets.title]}>Catálogo</Text>
+      <Text style={[indexStylesheets.title]}>{t`Catálogo`}</Text>
     </MotiView>
   );
 }

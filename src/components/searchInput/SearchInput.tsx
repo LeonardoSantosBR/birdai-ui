@@ -1,8 +1,9 @@
 import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
+import { t } from "@lingui/core/macro";
 import { StyleSheet, TextInput, View } from "react-native";
 
-export default function SearchInput({
+export function SearchInput({
   search,
   setSearch,
 }: {
@@ -15,7 +16,7 @@ export default function SearchInput({
       <Feather name="search" size={27} color={colors.searchInput.icon} />
 
       <TextInput
-        placeholder="Buscar aves..."
+        placeholder={t`Buscar aves...`}
         value={search}
         onChangeText={(t) => setSearch(t)}
         placeholderTextColor={colors.mainPalette.red}
