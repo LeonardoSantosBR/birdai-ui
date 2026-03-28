@@ -53,7 +53,7 @@ export default function AddBird(): React.JSX.Element {
                 addBirdStylesheets.imagePlaceholder,
               ]}
             >
-              <Text style={addBirdStylesheets.imagePlaceholderIcon}>🦜</Text>
+              <Text style={addBirdStylesheets.imagePlaceholderIcon}>🦚</Text>
             </View>
           )}
           <TouchableOpacity
