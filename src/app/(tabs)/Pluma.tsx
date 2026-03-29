@@ -1,3 +1,4 @@
+import { PreviewImage, UploadZone } from '@/components';
 import { useIdentifyBird } from '@/hooks/pluma';
 import { IPlumaResult } from '@/interfaces';
 import * as ImagePicker from 'expo-image-picker';
@@ -69,7 +70,7 @@ export default function Pluma(): React.JSX.Element {
         contentContainerStyle={plumaStylesheets.content}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={plumaStylesheets.title}> Olá eu sou o Pluma, Assistente de descoberta</Text>
+        <Text style={plumaStylesheets.title}> Olá 👋 eu sou o Pluma, Assistente de descoberta</Text>
         {!imageUri ? (
           <UploadZone onGallery={pickImage} />
         ) : (
@@ -107,34 +108,6 @@ export default function Pluma(): React.JSX.Element {
         )}
       </ScrollView>
     </SafeAreaView>
-  );
-}
-
-// ─── Sub-componentes ──────────────────────────────────────────────────────────
-
-function UploadZone({ onGallery }: { onGallery: () => void }) {
-  return (
-    <View style={plumaStylesheets.uploadZone}>
-      <Text style={plumaStylesheets.uploadEmoji}>🦩</Text>
-      <Text style={plumaStylesheets.uploadTitle}>Envie uma foto da ave</Text>
-      <Text style={plumaStylesheets.uploadSub}>
-        Quanto mais nítida a foto, mais precisa a identificação
-      </Text>
-      <TouchableOpacity style={plumaStylesheets.btnOutline} onPress={onGallery} activeOpacity={0.8}>
-        <Text style={plumaStylesheets.btnOutlineText}>🖼  Escolher da galeria</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
-
-function PreviewImage({ uri, onReset }: { uri: string; onReset: () => void }) {
-  return (
-    <View style={plumaStylesheets.previewWrap}>
-      <Image source={{ uri }} style={plumaStylesheets.previewImage} resizeMode="cover" />
-      <TouchableOpacity style={plumaStylesheets.changeBtn} onPress={onReset} activeOpacity={0.8}>
-        <Text style={plumaStylesheets.changeBtnText}>Trocar foto</Text>
-      </TouchableOpacity>
-    </View>
   );
 }
 

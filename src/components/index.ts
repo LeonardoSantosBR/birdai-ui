@@ -6,6 +6,7 @@ export * from "./habitatsOptions";
 export * from "./header";
 export * from "./loadingSpinner";
 export * from "./pagination";
+export * from "./pluma";
 export * from "./searchInput";
 export * from "./updateBirdFormActions";
 
