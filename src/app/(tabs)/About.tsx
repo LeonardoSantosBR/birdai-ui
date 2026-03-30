@@ -1,4 +1,4 @@
-import { me } from "@/assets";
+import { birdaiMe } from "@/assets";
 import { AboutTitle } from "@/components/titles";
 import { t } from '@lingui/core/macro';
 import { Image, ScrollView, Text, View } from "react-native";
@@ -13,7 +13,7 @@ export default function About(): React.JSX.Element {
 
       <View style={aboutStylesheets.imageContainer}>
         <View style={aboutStylesheets.imageArea}>
-          <Image style={aboutStylesheets.image} source={me} />
+          <Image style={aboutStylesheets.image} source={birdaiMe} />
         </View>
       </View>
 

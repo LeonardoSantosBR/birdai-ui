@@ -1,7 +1,8 @@
 import { plumaStylesheets } from "@/app/(tabs)_stylesheets";
+import { birdaiArara } from "@/assets";
 import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 export function UploadZone({ onGallery }: { onGallery: () => void }) {
   const focused = useIsFocused();
@@ -18,7 +19,7 @@ export function UploadZone({ onGallery }: { onGallery: () => void }) {
         duration: 500,
       }}>
       <View style={plumaStylesheets.uploadZone}>
-        <Text style={plumaStylesheets.uploadEmoji}>🦩</Text>
+        <Image style={plumaStylesheets.image} source={birdaiArara} />
         <Text style={plumaStylesheets.uploadTitle}>Envie uma foto da ave</Text>
         <Text style={plumaStylesheets.uploadSub}>
           Quanto mais nítida a foto, mais precisa a identificação

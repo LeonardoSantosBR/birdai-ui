@@ -9,6 +9,10 @@ export const addBirdStylesheets = StyleSheet.create({
     backgroundColor: colors.screens.birdForm.background,
     padding: 15,
   },
+  image: {
+    width: "45%",
+    height: "45%",
+  },
   title: {
     fontSize: 27,
     fontWeight: "bold",
@@ -43,9 +47,6 @@ export const addBirdStylesheets = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#E8DDD4",
     borderStyle: "dashed",
-  },
-  imagePlaceholderIcon: {
-    fontSize: 70,
   },
   changeImageButton: {
     flexDirection: "row",
