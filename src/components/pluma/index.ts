@@ -1,4 +1,4 @@
-export * from "./plumaPickImage";
+export * from "./PlumaBirdCard";
 export * from "./PlumaPreviewImage";
 export * from "./PlumaUploadZone";
 

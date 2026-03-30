@@ -1,5 +1,5 @@
-import { plumaPickImage, PreviewImage, UploadZone } from "@/components";
-import { PlumaBirdCard } from "@/components/pluma/PlumaBirdCard";
+import { PlumaBirdCard, PreviewImage, UploadZone } from "@/components";
+import { plumaPickImage } from "@/helpers";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
 import { useIdentifyBird } from "@/hooks/pluma";
 import { Ihabitats } from "@/interfaces";

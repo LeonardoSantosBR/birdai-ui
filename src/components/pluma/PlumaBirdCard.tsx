@@ -1,5 +1,5 @@
 import { plumaStylesheets } from "@/app/(tabs)_stylesheets";
-import { CONFIDENCE_LABEL } from "@/constants";
+import { plumaConfidenceLabel } from "@/constants";
 import { IPlumaResult } from "@/interfaces";
 import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
 
@@ -24,7 +24,7 @@ export function PlumaBirdCard({
         />
         <View style={plumaStylesheets.confidenceBadge}>
           <Text style={plumaStylesheets.confidenceText}>
-            {CONFIDENCE_LABEL[result.confidence]}
+            {plumaConfidenceLabel[result.confidence]}
           </Text>
         </View>
       </View>

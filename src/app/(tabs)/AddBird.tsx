@@ -1,4 +1,5 @@
 
+import { birdaiBeijaFlor } from "@/assets";
 import { AddBirdFormActions, HabitatsOptions } from "@/components";
 import { AddBirdTitle } from "@/components/titles";
 import { normalizePagination, pickGalleryImage } from "@/helpers";
@@ -53,7 +54,7 @@ export default function AddBird(): React.JSX.Element {
                 addBirdStylesheets.imagePlaceholder,
               ]}
             >
-              <Text style={addBirdStylesheets.imagePlaceholderIcon}>🦚</Text>
+              <Image style={addBirdStylesheets.image} source={birdaiBeijaFlor} />
             </View>
           )}
           <TouchableOpacity

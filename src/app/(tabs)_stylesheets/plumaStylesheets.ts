@@ -19,6 +19,10 @@ export const plumaStylesheets = StyleSheet.create({
     paddingBottom: 140,
     gap: 16,
   },
+  image: {
+    width: "45%",
+    height: "45%",
+  },
   title: {
     fontSize: 20,
     fontFamily: "monospace",
@@ -36,7 +40,6 @@ export const plumaStylesheets = StyleSheet.create({
     gap: 8,
     marginTop: 12,
   },
-  uploadEmoji: { fontSize: 60, marginBottom: 8 },
   uploadTitle: { fontSize: 16, fontWeight: "600", color: TEXT },
   uploadSub: {
     fontSize: 12,

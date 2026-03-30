@@ -1,3 +1,2 @@
-export * from "./plumaConfidenceLabel";
-export * from "./plumaPrompt";
+export * from "./pluma";
 
