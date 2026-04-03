@@ -6,7 +6,7 @@ export const addBirdStylesheets = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
-    backgroundColor: colors.addBird.background,
+    backgroundColor: colors.screens.birdForm.background,
     padding: 15,
   },
   image: {
@@ -38,10 +38,10 @@ export const addBirdStylesheets = StyleSheet.create({
     width: "100%",
     height: 250,
     borderRadius: 12,
-    backgroundColor: colors.addBird.imageBackground,
+    backgroundColor: colors.screens.birdForm.imageBackground,
   },
   imagePlaceholder: {
-    backgroundColor: colors.addBird.imagePlaceholderBackground,
+    backgroundColor: colors.screens.birdForm.imagePlaceholderBackground,
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 2,
@@ -56,7 +56,7 @@ export const addBirdStylesheets = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: 20,
     borderWidth: 1.5,
-    borderColor: colors.addBird.border,
+    borderColor: colors.screens.birdForm.border,
   },
   cameraIcon: {
     fontSize: 16,
@@ -64,7 +64,7 @@ export const addBirdStylesheets = StyleSheet.create({
   changeImageText: {
     fontSize: 14,
     fontWeight: "600",
-    color: colors.addBird.primary,
+    color: colors.screens.birdForm.primary,
   },
   fields: {
     gap: 16,
@@ -75,17 +75,17 @@ export const addBirdStylesheets = StyleSheet.create({
   label: {
     fontSize: 14,
     fontWeight: "600",
-    color: colors.addBird.textPrimary,
+    color: colors.screens.birdForm.textPrimary,
   },
   input: {
     borderWidth: 1,
-    borderColor: colors.addBird.border,
+    borderColor: colors.screens.birdForm.border,
     borderRadius: 10,
     paddingHorizontal: 14,
     paddingVertical: 10,
     fontSize: 15,
-    color: colors.addBird.textPrimary,
-    backgroundColor: colors.addBird.surface,
+    color: colors.screens.birdForm.textPrimary,
+    backgroundColor: colors.screens.birdForm.surface,
   },
   chipsRow: {
     flexDirection: "row",
@@ -97,16 +97,16 @@ export const addBirdStylesheets = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: 20,
     borderWidth: 1.5,
-    borderColor: colors.addBird.border,
-    backgroundColor: colors.addBird.chipDefault,
+    borderColor: colors.screens.birdForm.border,
+    backgroundColor: colors.screens.birdForm.chipDefault,
   },
   chipText: {
     fontSize: 13,
-    color: colors.addBird.chipDefaultText,
+    color: colors.screens.birdForm.chipDefaultText,
     fontWeight: "500",
   },
   chipTextSelected: {
-    color: colors.addBird.chipSelectedText,
+    color: colors.screens.birdForm.chipSelectedText,
     fontWeight: "700",
   },
   actions: {
@@ -119,21 +119,21 @@ export const addBirdStylesheets = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: 12,
     borderWidth: 1.5,
-    borderColor: colors.addBird.cancelBorder,
+    borderColor: colors.screens.birdForm.cancelBorder,
     alignItems: "center",
-    backgroundColor: colors.addBird.cancel,
+    backgroundColor: colors.screens.birdForm.cancel,
   },
   cancelText: {
     fontSize: 15,
     fontWeight: "600",
-    color: colors.addBird.cancelText,
+    color: colors.screens.birdForm.cancelText,
   },
   saveButton: {
     flex: 1,
     paddingVertical: 14,
     borderRadius: 12,
     alignItems: "center",
-    backgroundColor: colors.addBird.primary,
+    backgroundColor: colors.screens.birdForm.primary,
   },
   saveButtonDisabled: {
     opacity: 0.6,
@@ -141,6 +141,6 @@ export const addBirdStylesheets = StyleSheet.create({
   saveText: {
     fontSize: 15,
     fontWeight: "700",
-    color: colors.addBird.saveTextColor,
+    color: colors.screens.birdForm.saveTextColor,
   },
 });

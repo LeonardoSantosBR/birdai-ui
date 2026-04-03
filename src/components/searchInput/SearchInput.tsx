@@ -13,13 +13,13 @@ export function SearchInput({
   
   return (
     <View style={searchInputStylesheets.container}>
-      <Feather name="search" size={27} color={colors.searchInput.icon} />
+      <Feather name="search" size={27} color={colors.screens.searchInput.icon} />
 
       <TextInput
         placeholder={t`Buscar aves...`}
         value={search}
         onChangeText={(t) => setSearch(t)}
-        placeholderTextColor={colors.mainPalette.red}
+        placeholderTextColor={colors.palette.red600}
         style={searchInputStylesheets.input}
       />
     </View>
@@ -30,7 +30,7 @@ export const searchInputStylesheets = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: colors.searchInput.background,
+    backgroundColor: colors.screens.searchInput.background,
     borderRadius: 20,
     paddingHorizontal: 12,
     height: 50,
@@ -38,7 +38,7 @@ export const searchInputStylesheets = StyleSheet.create({
     marginTop: 10,
   },
   input: {
-    color: colors.mainPalette.red,
+    color: colors.palette.red600,
     fontSize: 17,
     width: "100%",
     borderRadius: 30,

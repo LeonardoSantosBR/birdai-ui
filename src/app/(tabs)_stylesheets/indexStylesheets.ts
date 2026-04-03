@@ -6,7 +6,7 @@ export const indexStylesheets = StyleSheet.create({
     flex: 1,
     width: "100%",
     padding: 15,
-    backgroundColor: colors.index.background,
+    backgroundColor: colors.screens.index.background,
   },
   title: {
     fontSize: 27,
@@ -27,6 +27,6 @@ export const indexStylesheets = StyleSheet.create({
     textAlign: "center",
     marginTop: 24,
     fontSize: 16,
-    color: colors.index.emptyText,
+    color: colors.screens.index.emptyText,
   },
 });
