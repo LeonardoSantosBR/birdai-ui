@@ -1,17 +1,13 @@
 import { colors } from "@/themes";
 import { StyleSheet } from "react-native";
 
-const RED = colors.mainPalette.red;
-const TEXT = "#1A1208";
-const TEXT2 = "#6B5E52";
-const TEXT3 = "#A89A8E";
-const WARM = "#F5EFE8";
-const BORDER = "#E8DDD4";
+const { pluma } = colors.screens;
+const RED = colors.palette.red600;
 
 export const plumaStylesheets = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: "#FDF8F3",
+    backgroundColor: pluma.background,
   },
   container: { flex: 1 },
   content: {
@@ -30,20 +26,20 @@ export const plumaStylesheets = StyleSheet.create({
     paddingLeft: 10,
   },
   uploadZone: {
-    backgroundColor: WARM,
+    backgroundColor: pluma.warm,
     borderRadius: 20,
     borderWidth: 2,
-    borderColor: BORDER,
+    borderColor: pluma.border,
     borderStyle: "dashed",
     padding: 36,
     alignItems: "center",
     gap: 8,
     marginTop: 12,
   },
-  uploadTitle: { fontSize: 16, fontWeight: "600", color: TEXT },
+  uploadTitle: { fontSize: 16, fontWeight: "600", color: pluma.text },
   uploadSub: {
     fontSize: 12,
-    color: TEXT3,
+    color: pluma.textMuted,
     textAlign: "center",
     marginBottom: 8,
   },
@@ -63,12 +59,12 @@ export const plumaStylesheets = StyleSheet.create({
     position: "absolute",
     bottom: 12,
     right: 12,
-    backgroundColor: "rgba(0,0,0,0.55)",
+    backgroundColor: colors.palette.overlayDark,
     paddingHorizontal: 14,
     paddingVertical: 6,
     borderRadius: 20,
   },
-  changeBtnText: { color: "#fff", fontSize: 12 },
+  changeBtnText: { color: colors.palette.white, fontSize: 12 },
 
   btnAnalyze: {
     backgroundColor: RED,
@@ -76,24 +72,24 @@ export const plumaStylesheets = StyleSheet.create({
     padding: 16,
     alignItems: "center",
   },
-  btnDisabled: { backgroundColor: BORDER },
-  btnAnalyzeText: { color: "#fff", fontSize: 15, fontWeight: "600" },
-  loadingHint: { textAlign: "center", fontSize: 13, color: TEXT3 },
+  btnDisabled: { backgroundColor: pluma.border },
+  btnAnalyzeText: { color: colors.palette.white, fontSize: 15, fontWeight: "600" },
+  loadingHint: { textAlign: "center", fontSize: 13, color: pluma.textMuted },
 
   errorCard: {
-    backgroundColor: "#FFF5F4",
+    backgroundColor: pluma.errorBackground,
     borderWidth: 1,
-    borderColor: "#FFCFCC",
+    borderColor: pluma.errorBorder,
     borderRadius: 12,
     padding: 14,
   },
-  errorText: { color: "#B5201A", fontSize: 13 },
+  errorText: { color: pluma.errorText, fontSize: 13 },
 
   resultCard: {
-    backgroundColor: "#fff",
+    backgroundColor: colors.palette.white,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: BORDER,
+    borderColor: pluma.border,
     overflow: "hidden",
   },
   resultImage: { width: "100%", height: 200 },
@@ -101,17 +97,17 @@ export const plumaStylesheets = StyleSheet.create({
     position: "absolute",
     top: 12,
     right: 12,
-    backgroundColor: "rgba(0,0,0,0.55)",
+    backgroundColor: colors.palette.overlayDark,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 20,
   },
-  confidenceText: { color: "#fff", fontSize: 11, fontWeight: "500" },
+  confidenceText: { color: colors.palette.white, fontSize: 11, fontWeight: "500" },
   resultBody: { padding: 20, gap: 8 },
-  resultName: { fontSize: 22, fontWeight: "700", color: TEXT },
+  resultName: { fontSize: 22, fontWeight: "700", color: pluma.text },
   resultSci: {
     fontSize: 13,
-    color: TEXT3,
+    color: pluma.textMuted,
     fontStyle: "italic",
     marginBottom: 4,
   },
@@ -120,24 +116,24 @@ export const plumaStylesheets = StyleSheet.create({
     fontWeight: "600",
     letterSpacing: 1,
     textTransform: "uppercase",
-    color: TEXT3,
+    color: pluma.textMuted,
     marginTop: 4,
   },
-  resultDesc: { fontSize: 13, color: TEXT2, lineHeight: 20 },
-  divider: { height: 1, backgroundColor: BORDER, marginVertical: 4 },
+  resultDesc: { fontSize: 13, color: pluma.textSecondary, lineHeight: 20 },
+  divider: { height: 1, backgroundColor: pluma.border, marginVertical: 4 },
 
   chipsWrap: { flexDirection: "row", flexWrap: "wrap", gap: 6 },
   chip: {
     paddingHorizontal: 12,
     paddingVertical: 5,
     borderRadius: 20,
-    backgroundColor: WARM,
+    backgroundColor: pluma.warm,
     borderWidth: 1,
-    borderColor: BORDER,
+    borderColor: pluma.border,
   },
   chipActive: { backgroundColor: RED, borderColor: RED },
-  chipText: { fontSize: 11, fontWeight: "500", color: TEXT2 },
-  chipTextActive: { color: "#fff" },
+  chipText: { fontSize: 11, fontWeight: "500", color: pluma.textSecondary },
+  chipTextActive: { color: colors.palette.white },
 
   btnAdd: {
     borderWidth: 1.5,
@@ -149,5 +145,5 @@ export const plumaStylesheets = StyleSheet.create({
   },
   btnAddText: { color: RED, fontSize: 14, fontWeight: "600" },
   btnRetry: { alignItems: "center", padding: 8 },
-  btnRetryText: { color: TEXT3, fontSize: 13, textDecorationLine: "underline" },
+  btnRetryText: { color: pluma.textMuted, fontSize: 13, textDecorationLine: "underline" },
 });
