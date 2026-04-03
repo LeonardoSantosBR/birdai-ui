@@ -6,7 +6,7 @@ export const aboutStylesheets = StyleSheet.create({
     flex: 1,
     width: "100%",
     padding: 15,
-    backgroundColor: colors.aboutMe.background,
+    backgroundColor: colors.screens.aboutMe.background,
   },
   title: {
     fontSize: 27,
@@ -34,6 +34,6 @@ export const aboutStylesheets = StyleSheet.create({
     marginTop: 20,
     fontSize: 15,
     lineHeight: 20,
-    color: colors.aboutMe.descriptionColor,
+    color: colors.screens.aboutMe.descriptionColor,
   },
 });

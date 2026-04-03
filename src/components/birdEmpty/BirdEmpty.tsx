@@ -7,7 +7,7 @@ export function BirdEmpty(): React.JSX.Element {
   return (
     <View style={birdEmptyStylesheets.container}>
       <Image style={birdEmptyStylesheets.image} source={birdaiEmpty} />
-      <Text style={{ color: colors.birdEmpty.text }}>
+      <Text style={{ color: colors.screens.birdEmpty.text }}>
         {t`Nenhuma Ave encontrada...`}
       </Text>
     </View>
@@ -26,7 +26,7 @@ export const birdEmptyStylesheets = StyleSheet.create({
     height: 180,
   },
   text: {
-    color: colors.birdEmpty.buttonText,
+    color: colors.screens.birdEmpty.buttonText,
     fontSize: 16,
     fontWeight: "600",
   },
