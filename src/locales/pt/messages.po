@@ -19,19 +19,23 @@ msgstr ""
 #: src/components/birdCard/BirdCard.tsx:57
 #: src/components/birdCard/BirdCard.tsx:59
 #: src/components/birdCard/BirdCard.tsx:72
-#: src/components/habitatsCard/HabitatsCard.tsx:44
+#: src/components/habitats/HabitatsCard.tsx:44
 msgid "{0}"
 msgstr ""
 
-#: src/components/habitatsOptions/HabitatsOptions.tsx:33
+#: src/components/habitats/HabitatsOptions.tsx:33
 msgid "{name}"
 msgstr ""
 
-#: src/app/(tabs)/AddBird.tsx:66
+#: src/components/pluma/PlumaUploadZone.tsx:34
+msgid "🖼 Escolher da galeria"
+msgstr ""
+
+#: src/app/(tabs)/AddBird.tsx:67
 msgid "Adicionar imagem"
 msgstr ""
 
-#: src/app/birds/[id]/UpdateBird.tsx:71
+#: src/app/birds/[id]/UpdateBird.tsx:70
 msgid "Alterar imagem"
 msgstr ""
 
@@ -45,18 +49,26 @@ msgstr ""
 msgid "Cancelar"
 msgstr ""
 
+#: src/components/titles/CatalogTitle.tsx:23
+msgid "Catálogo"
+msgstr ""
+
 #: src/components/addBirdFormActions/AddBirdFormActions.tsx:64
 msgid "Criar ave"
 msgstr ""
 
-#: src/app/(tabs)/AddBird.tsx:96
-#: src/app/birds/[id]/UpdateBird.tsx:100
+#: src/app/(tabs)/AddBird.tsx:97
+#: src/app/birds/[id]/UpdateBird.tsx:101
 msgid "Descrição"
 msgstr ""
 
-#: src/app/(tabs)/AddBird.tsx:101
-#: src/app/birds/[id]/UpdateBird.tsx:108
+#: src/app/(tabs)/AddBird.tsx:102
+#: src/app/birds/[id]/UpdateBird.tsx:109
 msgid "Descrição da ave..."
+msgstr ""
+
+#: src/components/pluma/PlumaUploadZone.tsx:24
+msgid "Envie uma foto da ave"
 msgstr ""
 
 #: src/components/addBirdFormActions/AddBirdFormActions.tsx:31
@@ -79,8 +91,8 @@ msgstr ""
 #~ msgid "habitat.name"
 #~ msgstr ""
 
-#: src/app/(tabs)/AddBird.tsx:110
-#: src/app/birds/[id]/UpdateBird.tsx:116
+#: src/app/(tabs)/AddBird.tsx:111
+#: src/app/birds/[id]/UpdateBird.tsx:117
 msgid "Habitates"
 msgstr ""
 
@@ -88,19 +100,23 @@ msgstr ""
 msgid "Nenhuma Ave encontrada..."
 msgstr ""
 
-#: src/app/(tabs)/AddBird.tsx:73
-#: src/app/birds/[id]/UpdateBird.tsx:78
+#: src/app/(tabs)/AddBird.tsx:74
+#: src/app/birds/[id]/UpdateBird.tsx:77
 msgid "Nome"
 msgstr ""
 
-#: src/app/(tabs)/AddBird.tsx:84
-#: src/app/birds/[id]/UpdateBird.tsx:88
+#: src/app/(tabs)/AddBird.tsx:85
+#: src/app/birds/[id]/UpdateBird.tsx:89
 msgid "Nome científico"
 msgstr ""
 
-#: src/app/(tabs)/AddBird.tsx:78
-#: src/app/birds/[id]/UpdateBird.tsx:83
+#: src/app/(tabs)/AddBird.tsx:79
+#: src/app/birds/[id]/UpdateBird.tsx:82
 msgid "Nome da ave"
+msgstr ""
+
+#: src/components/titles/AddBird.tsx:23
+msgid "Nova Ave"
 msgstr ""
 
 #: src/helpers/pickGalleryImage.ts:12
@@ -111,20 +127,33 @@ msgstr ""
 msgid "Precisamos de acesso à galeria para adicionar a imagem."
 msgstr ""
 
+#: src/components/pluma/PlumaUploadZone.tsx:26
+msgid "Quanto mais nítida a foto, mais precisa a identificação"
+msgstr ""
+
 #: src/components/updateBirdFormActions/UpdateBirdFormActions.tsx:49
 msgid "Salvar alterações"
 msgstr ""
 
+#: src/components/titles/About.tsx:33
+#: src/components/titles/About.tsx:42
+msgid "Sobre Mim"
+msgstr ""
+
 #: src/app/(tabs)/About.tsx:20
-msgid ""
-"Sou um desenvolvedor full stack mobile júnior apaixonado por\n"
-"          tecnologia e movido pela curiosidade de aprender cada vez mais. Além\n"
-"          disso, tenho uma grande admiração e observação por pássaros, o que me\n"
-"          inspirou a unir esse interesse pessoal com minha evolução\n"
-"          profissional. Foi assim que surgiu o Birdai, um projeto criado com o\n"
-"          objetivo de aprofundar meus conhecimentos em desenvolvimento mobile\n"
-"          utilizando React Native e outras tecnologias como NestJs, PostgresSql,\n"
-"          PrismaJs e etc."
+#~ msgid ""
+#~ "Sou um desenvolvedor full stack mobile júnior apaixonado por\n"
+#~ "          tecnologia e movido pela curiosidade de aprender cada vez mais. Além\n"
+#~ "          disso, tenho uma grande admiração e observação por pássaros, o que me\n"
+#~ "          inspirou a unir esse interesse pessoal com minha evolução\n"
+#~ "          profissional. Foi assim que surgiu o Birdai, um projeto criado com o\n"
+#~ "          objetivo de aprofundar meus conhecimentos em desenvolvimento mobile\n"
+#~ "          utilizando React Native e outras tecnologias como NestJs, PostgresSql,\n"
+#~ "          PrismaJs e etc."
+#~ msgstr ""
+
+#: src/app/(tabs)/About.tsx:8
+msgid "Sou um desenvolvedor full stack mobile júnior apaixonado por tecnologia e movido pela curiosidade de aprender cada vez mais. Além disso, tenho uma grande admiração e observação por pássaros, o que me inspirou a unir esse interesse pessoal com minha evolução profissional. Foi assim que surgiu o Birdai, um projeto criado com o objetivo de aprofundar meus conhecimentos em desenvolvimento mobile utilizando React Native e outras tecnologias como NestJs, PostgresSql, PrismaJs e etc."
 msgstr ""
 
 #. placeholder {0}: data.name
