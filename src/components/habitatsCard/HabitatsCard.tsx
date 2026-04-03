@@ -27,8 +27,8 @@ export function HabitatsCard({
         alignItems: "center",
         height: 35,
         backgroundColor: isSelected
-          ? colors.habitatsCard.selected
-          : colors.mainPalette.white,
+          ? colors.screens.habitatsCard.selected
+          : colors.palette.white75,
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 20,
@@ -37,7 +37,7 @@ export function HabitatsCard({
       <Text
         style={{
           fontFamily: "sans-serif-medium",
-          color: colors.habitatsCard.text,
+          color: colors.screens.habitatsCard.text,
           fontWeight: "600",
         }}
       >

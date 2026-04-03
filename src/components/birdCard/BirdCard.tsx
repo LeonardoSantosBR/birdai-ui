@@ -84,14 +84,14 @@ export function BirdCard({ data }: BirdCardProps): React.JSX.Element {
 
       <View style={birdCardStylesheets.actions}>
         <TouchableOpacity onPress={() => handleUpdate()}>
-          <Feather name="edit-2" size={18} color={colors.birdCard.actionEdit} />
+          <Feather name="edit-2" size={18} color={colors.screens.birdCard.actionEdit} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => handleDelete()}>
           <Feather
             name="trash-2"
             size={18}
-            color={colors.birdCard.actionDelete}
+            color={colors.screens.birdCard.actionDelete}
           />
         </TouchableOpacity>
       </View>
@@ -103,7 +103,7 @@ export const birdCardStylesheets = StyleSheet.create({
   container: {
     flexDirection: "row",
     minHeight: 110,
-    backgroundColor: colors.birdCard.background,
+    backgroundColor: colors.screens.birdCard.background,
     borderRadius: 16,
     alignItems: "center",
     marginBottom: 12,
@@ -127,7 +127,7 @@ export const birdCardStylesheets = StyleSheet.create({
     fontWeight: "bold",
   },
   subtitle: {
-    color: colors.birdCard.subtitle,
+    color: colors.screens.birdCard.subtitle,
     marginBottom: 6,
     fontFamily: "monospace",
   },
@@ -142,11 +142,11 @@ export const birdCardStylesheets = StyleSheet.create({
     marginRight: 6,
   },
   tagText: {
-    color: colors.birdCard.tagText,
+    color: colors.screens.birdCard.tagText,
     fontSize: 12,
   },
   moreTag: {
-    backgroundColor: colors.birdCard.moreTagBackground,
+    backgroundColor: colors.screens.birdCard.moreTagBackground,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 12,

@@ -80,7 +80,7 @@ export default function UpdateBird(): React.JSX.Element {
               value={form.name}
               onChangeText={(v) => setForm((p) => ({ ...p, name: v }))}
               placeholder={t`Nome da ave`}
-              placeholderTextColor={colors.updateBird.textPlaceholder}
+              placeholderTextColor={colors.screens.birdForm.textPlaceholder}
             />
           </View>
           <View style={updateBirdStylesheets.field}>
@@ -94,7 +94,7 @@ export default function UpdateBird(): React.JSX.Element {
                 setForm((p) => ({ ...p, cientific_name: v }))
               }
               placeholder="Psittacula krameri"
-              placeholderTextColor={colors.updateBird.textPlaceholder}
+              placeholderTextColor={colors.screens.birdForm.textPlaceholder}
             />
           </View>
           <View style={updateBirdStylesheets.field}>
@@ -107,7 +107,7 @@ export default function UpdateBird(): React.JSX.Element {
               value={form.description}
               onChangeText={(v) => setForm((p) => ({ ...p, description: v }))}
               placeholder={t`Descrição da ave...`}
-              placeholderTextColor={colors.updateBird.textPlaceholder}
+              placeholderTextColor={colors.screens.birdForm.textPlaceholder}
               multiline
               numberOfLines={4}
               textAlignVertical="top"
