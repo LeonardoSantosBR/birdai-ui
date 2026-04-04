@@ -1,6 +1,6 @@
 
 import { birdaiBeijaFlor } from "@/assets";
-import { AddBirdFormActions, HabitatsOptions } from "@/components";
+import { CreateBirdForm, HabitatsOptions } from "@/components";
 import { AddBirdTitle } from "@/components/titles";
 import { normalizePagination, pickGalleryImage } from "@/helpers";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
@@ -129,7 +129,7 @@ export default function AddBird(): React.JSX.Element {
           </View>
         </View>
 
-        <AddBirdFormActions form={form} setForm={setForm}/>
+        <CreateBirdForm form={form} setForm={setForm}/>
       </ScrollView>
     </View>
   );

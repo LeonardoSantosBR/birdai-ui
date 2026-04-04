@@ -1,4 +1,4 @@
-import { HabitatsOptions, UpdateBirdFormActions } from "@/components";
+import { HabitatsOptions, UpdateBirdForm } from "@/components";
 import { normalizePagination, pickGalleryImage } from "@/helpers";
 import { useGetBirdsById } from "@/hooks/birds/useGetBirdsById";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
@@ -135,7 +135,7 @@ export default function UpdateBird(): React.JSX.Element {
             </View>
           </View>
         </View>
-        <UpdateBirdFormActions id={+id} form={form} />
+        <UpdateBirdForm id={+id} form={form} />
       </ScrollView>
     </View>
   );

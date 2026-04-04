@@ -43,9 +43,9 @@ msgstr ""
 msgid "Buscar aves..."
 msgstr ""
 
-#: src/components/addBirdFormActions/AddBirdFormActions.tsx:53
 #: src/components/birdCard/BirdCard.tsx:38
-#: src/components/updateBirdFormActions/UpdateBirdFormActions.tsx:36
+#: src/components/forms/birds/CreateBirdForm.tsx:53
+#: src/components/forms/birds/UpdateBirdForm.tsx:36
 msgid "Cancelar"
 msgstr ""
 
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Catálogo"
 msgstr ""
 
-#: src/components/addBirdFormActions/AddBirdFormActions.tsx:64
+#: src/components/forms/birds/CreateBirdForm.tsx:64
 msgid "Criar ave"
 msgstr ""
 
@@ -71,11 +71,11 @@ msgstr ""
 msgid "Envie uma foto da ave"
 msgstr ""
 
-#: src/components/addBirdFormActions/AddBirdFormActions.tsx:31
+#: src/components/forms/birds/CreateBirdForm.tsx:31
 msgid "Erro, Não foi possível criar nova Ave."
 msgstr ""
 
-#: src/components/updateBirdFormActions/UpdateBirdFormActions.tsx:23
+#: src/components/forms/birds/UpdateBirdForm.tsx:23
 msgid "Erro, Não foi possível salvar as alterações."
 msgstr ""
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Quanto mais nítida a foto, mais precisa a identificação"
 msgstr ""
 
-#: src/components/updateBirdFormActions/UpdateBirdFormActions.tsx:49
+#: src/components/forms/birds/UpdateBirdForm.tsx:49
 msgid "Salvar alterações"
 msgstr ""
 

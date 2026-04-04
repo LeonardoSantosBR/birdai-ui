@@ -5,7 +5,7 @@ import { t } from "@lingui/core/macro";
 import { useRouter } from "expo-router";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 
-export function UpdateBirdFormActions({
+export function UpdateBirdForm({
   id,
   form,
 }: {
