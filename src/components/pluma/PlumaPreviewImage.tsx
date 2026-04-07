@@ -1,4 +1,4 @@
-import { plumaStylesheets } from "@/app/(tabs)_stylesheets";
+import { plumaStylesheets } from "@/app/styles/tabs";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 export function PreviewImage({

@@ -1,18 +1,18 @@
-import { PlumaBirdCard, PreviewImage, UploadZone } from "@/components";
+import {
+  PlumaBirdCard,
+  PlumaIdentificator,
+  PlumaIdentifying,
+  PreviewImage,
+  UploadZone,
+} from "@/components";
 import { plumaPickImage } from "@/helpers";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
 import { useIdentifyBird } from "@/hooks/pluma";
 import { Ihabitats } from "@/interfaces";
 import React, { useState } from "react";
-import {
-  ActivityIndicator,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { ScrollView, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { plumaStylesheets } from "../(tabs)_stylesheets";
+import { plumaStylesheets } from "../styles/tabs";
 
 export default function Pluma(): React.JSX.Element {
   const { data: habitatsData } = useGetHabitats();
@@ -64,29 +64,11 @@ export default function Pluma(): React.JSX.Element {
                 disabled={isPending}
                 activeOpacity={0.85}
               >
-                {isPending ? (
-                  <ActivityIndicator color="#fff" />
-                ) : (
-                  <Text style={plumaStylesheets.btnAnalyzeText}>
-                    🔍 Identificar ave
-                  </Text>
-                )}
+                <PlumaIdentificator isPending={isPending} />
               </TouchableOpacity>
             )}
 
-            {isPending && (
-              <Text style={plumaStylesheets.loadingHint}>
-                Analisando plumagem, bico e habitat…
-              </Text>
-            )}
-
-            {error && (
-              <View style={plumaStylesheets.errorCard}>
-                <Text style={plumaStylesheets.errorText}>
-                  ⚠ {(error as Error).message}
-                </Text>
-              </View>
-            )}
+            <PlumaIdentifying isPending={isPending} error={error} />
 
             {result && (
               <PlumaBirdCard

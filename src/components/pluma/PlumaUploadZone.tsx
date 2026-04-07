@@ -1,4 +1,4 @@
-import { plumaStylesheets } from "@/app/(tabs)_stylesheets";
+import { plumaStylesheets } from "@/app/styles/tabs";
 import { birdaiArara } from "@/assets";
 import { t } from "@lingui/core/macro";
 import { useIsFocused } from "@react-navigation/native";

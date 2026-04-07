@@ -9,14 +9,14 @@ import { colors } from "@/themes";
 import { t } from "@lingui/core/macro";
 import { useState } from "react";
 import {
-  Image,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View
+    Image,
+    ScrollView,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View
 } from "react-native";
-import { addBirdStylesheets } from "../(tabs)_stylesheets";
+import { addBirdStylesheets } from "../styles/tabs";
 
 export default function AddBird(): React.JSX.Element {
   const { data: habitatsData } = useGetHabitats();

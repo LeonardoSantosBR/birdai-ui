@@ -1,4 +1,4 @@
-import { plumaStylesheets } from "@/app/(tabs)_stylesheets";
+import { plumaStylesheets } from "@/app/styles/tabs";
 import { plumaConfidenceLabel } from "@/constants";
 import { IPlumaResult } from "@/interfaces";
 import { Alert, Image, Text, TouchableOpacity, View } from "react-native";

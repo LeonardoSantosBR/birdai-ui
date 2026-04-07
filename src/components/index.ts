@@ -1,5 +1,4 @@
-export * from "./birdCard";
-export * from "./birdEmpty";
+export * from "./birds";
 export * from "./forms";
 export * from "./habitats";
 export * from "./header";
