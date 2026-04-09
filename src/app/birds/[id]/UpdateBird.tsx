@@ -8,14 +8,14 @@ import { t } from "@lingui/core/macro";
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import {
-  Image,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
+    Image,
+    ScrollView,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from "react-native";
-import { updateBirdStylesheets } from "./updateBirdStylesheets";
+import { updateBirdStylesheets } from "../../styles/updateBirdStylesheets";
 
 export default function UpdateBird(): React.JSX.Element {
   const { id } = useLocalSearchParams<{ id: string }>();

@@ -1,4 +1,4 @@
-import { updateBirdStylesheets } from "@/app/birds/[id]/updateBirdStylesheets";
+import { updateBirdStylesheets } from "@/app/styles/updateBirdStylesheets";
 import { usePatchBirdsById } from "@/hooks";
 import { IBirdForm } from "@/interfaces";
 import { t } from "@lingui/core/macro";
