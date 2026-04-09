@@ -1,7 +1,7 @@
 import { plumaStylesheets } from "@/app/styles/tabs";
-import { plumaConfidenceLabel } from "@/constants";
+import { plumaConfidenceColor, plumaConfidenceLabel } from "@/constants";
 import { IPlumaResult } from "@/interfaces";
-import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 export function PlumaBirdCard({
   habitats,
@@ -22,7 +22,7 @@ export function PlumaBirdCard({
           style={plumaStylesheets.resultImage}
           resizeMode="cover"
         />
-        <View style={plumaStylesheets.confidenceBadge}>
+        <View style={[plumaStylesheets.confidenceBadge, { backgroundColor: plumaConfidenceColor[result.confidence], borderRadius: 20 }]}>
           <Text style={plumaStylesheets.confidenceText}>
             {plumaConfidenceLabel[result.confidence]}
           </Text>
@@ -60,16 +60,6 @@ export function PlumaBirdCard({
             </View>
           ))}
         </View>
-
-        <TouchableOpacity
-          style={plumaStylesheets.btnAdd}
-          activeOpacity={0.8}
-          onPress={() => Alert.alert("✓ Ave adicionada ao catálogo!")}
-        >
-          <Text style={plumaStylesheets.btnAddText}>
-            + Adicionar ao catálogo
-          </Text>
-        </TouchableOpacity>
 
         <TouchableOpacity style={plumaStylesheets.btnRetry} onPress={onReset}>
           <Text style={plumaStylesheets.btnRetryText}>Analisar outra ave</Text>
