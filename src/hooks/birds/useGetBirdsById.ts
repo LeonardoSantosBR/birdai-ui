@@ -5,5 +5,6 @@ export function useGetBirdsById(id: number) {
   return useQuery({
     queryKey: ["birdsById"],
     queryFn: () => getBirdsById(id),
+    staleTime: Infinity
   });
 }
