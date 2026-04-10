@@ -1,16 +1,9 @@
-import {
-  PlumaBirdCard,
-  PlumaIdentificator,
-  PlumaIdentifying,
-  PreviewImage,
-  UploadZone,
-} from "@/components";
-import { plumaPickImage } from "@/helpers";
+import { PlumaContent } from "@/components";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
 import { useIdentifyBird } from "@/hooks/pluma";
 import { Ihabitats } from "@/interfaces";
-import React, { useState } from "react";
-import { ScrollView, Text, TouchableOpacity } from "react-native";
+import React, { useMemo, useState } from "react";
+import { ScrollView, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { plumaStylesheets } from "../styles/tabs";
 
@@ -19,12 +12,14 @@ export default function Pluma(): React.JSX.Element {
   const [imageUri, setImageUri] = useState<string | null>(null);
   const [imageBase64, setImageBase64] = useState<string | null>(null);
 
-  const habitats = habitatsData.rows.map((r: Ihabitats) => {
-    return r.name;
-  });
+  const habitats: string[] = useMemo(() => {
+    return habitatsData.rows.map((r: Ihabitats) => {
+      return r.name;
+    });
+  }, [habitatsData]);
 
   const {
-    mutate: identify,
+    mutate: identifyBird,
     data: result,
     isPending,
     error,
@@ -45,41 +40,19 @@ export default function Pluma(): React.JSX.Element {
         showsVerticalScrollIndicator={false}
       >
         <Text style={plumaStylesheets.title}>Identifique uma Ave aqui</Text>
-        {!imageUri ? (
-          <UploadZone
-            onGallery={() =>
-              plumaPickImage({ setImageUri, setImageBase64, reset })
-            }
-          />
-        ) : (
-          <>
-            <PreviewImage uri={imageUri} onReset={handleReset} />
-            {!result && (
-              <TouchableOpacity
-                style={[
-                  plumaStylesheets.btnAnalyze,
-                  isPending && plumaStylesheets.btnDisabled,
-                ]}
-                onPress={() => imageBase64 && identify(imageBase64)}
-                disabled={isPending}
-                activeOpacity={0.85}
-              >
-                <PlumaIdentificator isPending={isPending} />
-              </TouchableOpacity>
-            )}
-
-            <PlumaIdentifying isPending={isPending} error={error} />
-
-            {result && (
-              <PlumaBirdCard
-                habitats={habitats}
-                result={result}
-                imageUri={imageUri}
-                onReset={handleReset}
-              />
-            )}
-          </>
-        )}
+        <PlumaContent
+          imageUri={imageUri}
+          imageBase64={imageBase64}
+          identifyBird={identifyBird}
+          setImageUri={setImageUri}
+          setImageBase64={setImageBase64}
+          reset={reset}
+          handleReset={handleReset}
+          result={result}
+          isPending={isPending}
+          error={error}
+          habitats={habitats}
+        />
       </ScrollView>
     </SafeAreaView>
   );
