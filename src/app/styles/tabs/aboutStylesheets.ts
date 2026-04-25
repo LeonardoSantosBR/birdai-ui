@@ -3,10 +3,11 @@ import { StyleSheet } from "react-native";
 
 export const aboutStylesheets = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     width: "100%",
     padding: 15,
     backgroundColor: colors.screens.aboutMe.background,
+    paddingBottom: 140,
   },
   title: {
     fontSize: 27,

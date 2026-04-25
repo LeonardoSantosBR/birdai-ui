@@ -2,6 +2,7 @@
 import { Header } from "@/components";
 import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from "expo-router";
 import { Platform, View } from "react-native";
 
@@ -48,6 +49,15 @@ export default function TabsLayout() {
             title: "Nova Ave",
             tabBarIcon: ({ color, size }) => (
               <Feather name="plus-circle" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="Pluma"
+          options={{
+            title: "Pluma",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="bird" size={size} color={color} />
             ),
           }}
         />

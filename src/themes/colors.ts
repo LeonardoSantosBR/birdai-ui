@@ -113,5 +113,17 @@ export const colors = {
       background: "#F5F5F5",
       descriptionColor: "#333333",
     },
+
+    pluma: {
+      background: "#FDF8F3",
+      warm: "#F5EFE8",
+      border: "#E8DDD4",
+      text: "#1A1208",
+      textSecondary: "#6B5E52",
+      textMuted: "#A89A8E",
+      errorBackground: "#FFF5F4",
+      errorBorder: "#FFCFCC",
+      errorText: "#B5201A",
+    },
   },
 } as const;

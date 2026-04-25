@@ -1,11 +1,11 @@
-import { addBirdStylesheets } from "@/app/(tabs)_stylesheets";
+import { addBirdStylesheets } from "@/app/styles/tabs";
 import { usePostBirds } from "@/hooks";
 import { IBirdForm } from "@/interfaces";
 import { t } from "@lingui/core/macro";
 import { useRouter } from "expo-router";
 import { Alert, Text, TouchableOpacity, View } from "react-native";
 
-export function AddBirdFormActions({
+export function CreateBirdForm({
   form,
   setForm,
 }: {

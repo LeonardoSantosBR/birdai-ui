@@ -1,5 +1,6 @@
 
-import { AddBirdFormActions, HabitatsOptions } from "@/components";
+import { birdaiBeijaFlor } from "@/assets";
+import { CreateBirdForm, HabitatsOptions } from "@/components";
 import { AddBirdTitle } from "@/components/titles";
 import { normalizePagination, pickGalleryImage } from "@/helpers";
 import { useGetHabitats } from "@/hooks/habitats/useGetHabitats";
@@ -8,14 +9,14 @@ import { colors } from "@/themes";
 import { t } from "@lingui/core/macro";
 import { useState } from "react";
 import {
-  Image,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View
+    Image,
+    ScrollView,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View
 } from "react-native";
-import { addBirdStylesheets } from "../(tabs)_stylesheets";
+import { addBirdStylesheets } from "../styles/tabs";
 
 export default function AddBird(): React.JSX.Element {
   const { data: habitatsData } = useGetHabitats();
@@ -53,7 +54,7 @@ export default function AddBird(): React.JSX.Element {
                 addBirdStylesheets.imagePlaceholder,
               ]}
             >
-              <Text style={addBirdStylesheets.imagePlaceholderIcon}>🦜</Text>
+              <Image style={addBirdStylesheets.image} source={birdaiBeijaFlor} />
             </View>
           )}
           <TouchableOpacity
@@ -128,7 +129,7 @@ export default function AddBird(): React.JSX.Element {
           </View>
         </View>
 
-        <AddBirdFormActions form={form} setForm={setForm}/>
+        <CreateBirdForm form={form} setForm={setForm}/>
       </ScrollView>
     </View>
   );

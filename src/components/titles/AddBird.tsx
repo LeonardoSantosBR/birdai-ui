@@ -1,4 +1,4 @@
-import { addBirdStylesheets } from "@/app/(tabs)_stylesheets";
+import { addBirdStylesheets } from "@/app/styles/tabs";
 import { t } from "@lingui/core/macro";
 import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";

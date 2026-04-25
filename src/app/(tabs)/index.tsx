@@ -14,7 +14,7 @@ import { useSetPage } from "@/hooks/useSetPage";
 import { IBirdCard, Ihabitats } from "@/interfaces";
 import { useState } from "react";
 import { FlatList, ScrollView, View } from "react-native";
-import { indexStylesheets } from "../(tabs)_stylesheets";
+import { indexStylesheets } from "../styles/tabs";
 
 export default function Catalog(): React.JSX.Element {
   const [page, setPage] = useState(1);
