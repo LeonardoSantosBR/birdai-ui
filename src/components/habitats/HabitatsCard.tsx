@@ -1,9 +1,10 @@
 import { Ihabitats } from "@/interfaces";
 import { colors } from "@/themes";
+import { t } from "@lingui/core/macro";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
-export default function HabitatsCard({
+export function HabitatsCard({
   item,
   setSelected,
   isSelected,
@@ -12,12 +13,9 @@ export default function HabitatsCard({
   setSelected: React.Dispatch<React.SetStateAction<number[]>>;
   isSelected: boolean;
 }): React.JSX.Element {
-  
   function toggleCategory(id: number) {
     setSelected((prev) =>
-      prev.includes(id)
-        ? prev.filter((item) => item !== id)
-        : [...prev, id]
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
   }
 
@@ -28,7 +26,9 @@ export default function HabitatsCard({
         flex: 1,
         alignItems: "center",
         height: 35,
-        backgroundColor: isSelected ? colors.habitatsCard.selected : colors.mainPalette.white,
+        backgroundColor: isSelected
+          ? colors.screens.habitatsCard.selected
+          : colors.palette.white75,
         paddingHorizontal: 16,
         paddingVertical: 8,
         borderRadius: 20,
@@ -37,13 +37,12 @@ export default function HabitatsCard({
       <Text
         style={{
           fontFamily: "sans-serif-medium",
-          color: colors.habitatsCard.text,
+          color: colors.screens.habitatsCard.text,
           fontWeight: "600",
         }}
       >
-        {item.name}
+        {t`${item.name}`}
       </Text>
     </TouchableOpacity>
   );
 }
-

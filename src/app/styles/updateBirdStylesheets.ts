@@ -5,19 +5,19 @@ export const updateBirdStylesheets = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
-    backgroundColor: colors.mainPalette.white,
+    backgroundColor: colors.palette.white75,
   },
   scroll: {
     flex: 1,
   },
   scrollContent: {
-    paddingBottom: 32,
+    paddingBottom: 80,
   },
   imageContainer: {
     position: "relative",
     width: "100%",
     height: 300,
-    backgroundColor: colors.updateBird.imageBackground,
+    backgroundColor: colors.screens.birdForm.imageBackground,
   },
   birdImage: {
     width: "100%",
@@ -26,7 +26,7 @@ export const updateBirdStylesheets = StyleSheet.create({
   imagePlaceholder: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: colors.updateBird.imagePlaceholderBackground,
+    backgroundColor: colors.screens.birdForm.imagePlaceholderBackground,
   },
   imagePlaceholderIcon: {
     fontSize: 48,
@@ -37,7 +37,7 @@ export const updateBirdStylesheets = StyleSheet.create({
     left: 12,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: colors.updateBird.changeImageButtonBackground,
+    backgroundColor: colors.screens.birdForm.changeImageButtonBackground,
     borderRadius: 20,
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -47,12 +47,12 @@ export const updateBirdStylesheets = StyleSheet.create({
     fontSize: 14,
   },
   changeImageText: {
-    color: colors.updateBird.changeImageTextColor,
+    color: colors.screens.birdForm.changeImageTextColor,
     fontSize: 13,
     fontWeight: "500",
   },
   fields: {
-    backgroundColor: colors.updateBird.surface,
+    backgroundColor: colors.screens.birdForm.surface,
     marginTop: 12,
     paddingHorizontal: 16,
     paddingTop: 16,
@@ -65,18 +65,18 @@ export const updateBirdStylesheets = StyleSheet.create({
   label: {
     fontSize: 13,
     fontWeight: "900",
-    color: colors.updateBird.textSecondary,
+    color: colors.screens.birdForm.textSecondary,
     letterSpacing: 0.1,
   },
   input: {
     borderWidth: 1,
-    borderColor: colors.updateBird.border,
+    borderColor: colors.screens.birdForm.border,
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 15,
-    color: colors.updateBird.textPrimary,
-    backgroundColor: colors.updateBird.surface,
+    color: colors.screens.birdForm.textPrimary,
+    backgroundColor: colors.screens.birdForm.surface,
   },
   textArea: {
     height: 96,
@@ -91,15 +91,15 @@ export const updateBirdStylesheets = StyleSheet.create({
     borderRadius: 20,
     paddingHorizontal: 14,
     paddingVertical: 7,
-    backgroundColor: colors.updateBird.chipDefault,
+    backgroundColor: colors.screens.birdForm.chipDefault,
   },
   chipText: {
     fontSize: 13,
-    color: colors.updateBird.chipDefaultText,
+    color: colors.screens.birdForm.chipDefaultText,
     fontWeight: "500",
   },
   chipTextSelected: {
-    color: colors.updateBird.chipSelectedText,
+    color: colors.screens.birdForm.chipSelectedText,
   },
   actions: {
     flexDirection: "row",
@@ -110,32 +110,32 @@ export const updateBirdStylesheets = StyleSheet.create({
   cancelButton: {
     flex: 1,
     borderWidth: 1,
-    borderColor: colors.updateBird.cancelBorder,
+    borderColor: colors.screens.birdForm.cancelBorder,
     borderRadius: 8,
     paddingVertical: 13,
     alignItems: "center",
-    backgroundColor: colors.updateBird.cancel,
+    backgroundColor: colors.screens.birdForm.cancel,
   },
   cancelText: {
     fontSize: 15,
     fontWeight: "600",
-    color: colors.updateBird.cancelText,
+    color: colors.screens.birdForm.cancelText,
   },
   saveButton: {
     flex: 1,
-    backgroundColor: colors.mainPalette.red,
+    backgroundColor: colors.palette.red600,
     borderRadius: 8,
     paddingVertical: 13,
     alignItems: "center",
     justifyContent: "center",
   },
   saveButtonDisabled: {
-    backgroundColor: colors.updateBird.primaryDark,
+    backgroundColor: colors.screens.birdForm.primary,
     opacity: 0.7,
   },
   saveText: {
     fontSize: 15,
     fontWeight: "600",
-    color: colors.updateBird.saveTextColor,
+    color: colors.screens.birdForm.saveTextColor,
   },
 });

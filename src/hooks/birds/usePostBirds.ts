@@ -24,7 +24,6 @@ export function usePostBirds() {
           type: fileType,
         } as any);
       }
-
       return postBirds(formData);
     },
     onSuccess: () => {

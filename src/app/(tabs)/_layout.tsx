@@ -1,6 +1,8 @@
-import Header from "@/components/header/Header";
+
+import { Header } from "@/components";
 import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from "expo-router";
 import { Platform, View } from "react-native";
 
@@ -13,18 +15,18 @@ export default function TabsLayout() {
           headerShown: false,
           tabBarShowLabel: true,
           tabBarLabelStyle: { fontSize: 13, marginTop: 1, fontWeight: "900" },
-          tabBarActiveTintColor: colors.mainPalette.orange,
-          tabBarInactiveTintColor: colors.mainPalette.white,
+          tabBarActiveTintColor: colors.palette.orange500,
+          tabBarInactiveTintColor: colors.palette.white75,
           tabBarStyle: {
             position: "absolute",
             height: 125,
             paddingBottom: Platform.OS === "ios" ? 10 : 8,
             paddingTop: 10,
-            backgroundColor: colors.mainPalette.red,
+            backgroundColor: colors.palette.red600,
             borderTopWidth: 0,
             borderTopRightRadius: 22,
             borderTopLeftRadius: 22,
-            shadowColor: colors.mainPalette.black,
+            shadowColor: colors.palette.black,
             shadowOpacity: 0.18,
             shadowRadius: 18,
             shadowOffset: { width: 0, height: 10 },
@@ -47,6 +49,15 @@ export default function TabsLayout() {
             title: "Nova Ave",
             tabBarIcon: ({ color, size }) => (
               <Feather name="plus-circle" size={size} color={color} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="Pluma"
+          options={{
+            title: "Pluma",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="bird" size={size} color={color} />
             ),
           }}
         />

@@ -1,63 +1,27 @@
-import { me } from "@/assets";
-import AboutTitle from "@/components/titles/About";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { birdaiMe } from "@/assets";
+import { AboutTitle } from "@/components/titles";
+import { t } from '@lingui/core/macro';
+import { Image, ScrollView, Text, View } from "react-native";
+import { aboutStylesheets } from "../styles/tabs";
 
 export default function About(): React.JSX.Element {
+  const description = t`Sou um desenvolvedor full stack mobile júnior apaixonado por tecnologia e movido pela curiosidade de aprender cada vez mais. Além disso, tenho uma grande admiração e observação por pássaros, o que me inspirou a unir esse interesse pessoal com minha evolução profissional. Foi assim que surgiu o Birdai, um projeto criado com o objetivo de aprofundar meus conhecimentos em desenvolvimento mobile utilizando React Native e outras tecnologias como NestJs, PostgresSql, PrismaJs e etc.`;
+
   return (
-    <View style={[aboutStylesheets.container]}>
+    <ScrollView style={{ flex: 1 }} contentContainerStyle={[aboutStylesheets.container]}>
       <AboutTitle />
 
       <View style={aboutStylesheets.imageContainer}>
         <View style={aboutStylesheets.imageArea}>
-          <Image style={aboutStylesheets.image} source={me} />
+          <Image style={aboutStylesheets.image} source={birdaiMe} />
         </View>
       </View>
 
       <View>
         <Text style={aboutStylesheets.description}>
-          Sou um desenvolvedor full stack mobile júnior apaixonado por tecnologia e movido pela curiosidade de aprender cada vez mais. 
-          Além disso, tenho uma grande admiração e observação por pássaros, o que me inspirou a unir esse interesse pessoal com minha evolução profissional. 
-          Foi assim que surgiu o BirdAI, um projeto criado com o objetivo de aprofundar meus conhecimentos em desenvolvimento mobile utilizando React Native e outras tecnologias como
-          NestJs, PostgresSql, PrismaJs e etc.
+          {description}
         </Text>
       </View>
-    </View>
+    </ScrollView>
   );
 }
-
-export const aboutStylesheets = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: "100%",
-    padding: 15,
-    backgroundColor: "#F5F5F5",
-  },
-  title: {
-    fontSize: 27,
-    fontWeight: "bold",
-  },
-  imageContainer: {
-    width: "100%",
-    alignItems: "center",
-    marginTop: 10,
-  },
-  imageArea: {
-    width: 400,
-    height: 400,
-    backgroundColor: "transparent",
-    justifyContent: "center",
-    alignItems: "center",
-    overflow: "hidden",
-    borderRadius: 12,
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-  },
-  description: {
-    marginTop: 20,
-    fontSize: 15,
-    lineHeight: 20,
-    color: "#333",
-  },
-});

@@ -1,9 +1,10 @@
-import { addBirdStylesheets } from "@/app/(tabs)/AddBird";
+import { addBirdStylesheets } from "@/app/styles/tabs";
+import { t } from "@lingui/core/macro";
 import { useIsFocused } from "@react-navigation/native";
 import { MotiView } from "moti";
 import { Text } from "react-native";
 
-export default function AddBirdTitle(): React.JSX.Element {
+export function AddBirdTitle(): React.JSX.Element {
   const focused = useIsFocused();
 
   return (
@@ -19,7 +20,7 @@ export default function AddBirdTitle(): React.JSX.Element {
         duration: 500,
       }}
     >
-      <Text style={[addBirdStylesheets.title]}>Nova Ave</Text>
+      <Text style={[addBirdStylesheets.title]}>{t`Nova Ave`}</Text>
     </MotiView>
   );
 }

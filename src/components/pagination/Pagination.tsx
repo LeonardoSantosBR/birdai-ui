@@ -2,7 +2,7 @@ import { colors } from "@/themes";
 import { Feather } from "@expo/vector-icons";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default function Pagination({
+export function Pagination({
   currentPage,
   lastPage,
   setPage,
@@ -32,7 +32,7 @@ export default function Pagination({
           onPress={() => handlePreviusOrNextPage("previous")}
           disabled={currentPage === 1}
         >
-          <Feather name="chevron-left" size={22} color={colors.mainPalette.white} />
+          <Feather name="chevron-left" size={22} color={colors.palette.white75} />
         </TouchableOpacity>
 
         <Text style={paginationStylesheets.pageIndicator}>
@@ -48,7 +48,7 @@ export default function Pagination({
           onPress={() => handlePreviusOrNextPage("next")}
           disabled={currentPage === lastPage}
         >
-          <Feather name="chevron-right" size={22} color={colors.mainPalette.white} />
+          <Feather name="chevron-right" size={22} color={colors.palette.white75} />
         </TouchableOpacity>
       </View>
     </View>
@@ -60,7 +60,7 @@ export const paginationStylesheets = StyleSheet.create({
     marginTop: 24,
     paddingTop: 16,
     borderTopWidth: 1,
-    borderTopColor: colors.mainPalette.white,
+    borderTopColor: colors.palette.white75,
     gap: 12,
   },
   paginationButtons: {
@@ -70,7 +70,7 @@ export const paginationStylesheets = StyleSheet.create({
     gap: 16,
   },
   pageButton: {
-    backgroundColor: colors.mainPalette.red,
+    backgroundColor: colors.palette.red600,
     width: 40,
     height: 40,
     borderRadius: 10,
@@ -78,11 +78,11 @@ export const paginationStylesheets = StyleSheet.create({
     alignItems: "center",
   },
   pageButtonDisabled: {
-    backgroundColor: colors.pagination.buttonDisabled,
+    backgroundColor: colors.screens.pagination.buttonDisabled,
   },
   pageIndicator: {
     fontSize: 16,
     fontWeight: "600",
-    color: colors.pagination.indicatorText,
+    color: colors.screens.pagination.indicatorText,
   },
 });
