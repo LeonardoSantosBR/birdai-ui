@@ -22,7 +22,15 @@ export function PlumaBirdCard({
           style={plumaStylesheets.resultImage}
           resizeMode="cover"
         />
-        <View style={[plumaStylesheets.confidenceBadge, { backgroundColor: plumaConfidenceColor[result.confidence], borderRadius: 20 }]}>
+        <View
+          style={[
+            plumaStylesheets.confidenceBadge,
+            {
+              backgroundColor: plumaConfidenceColor[result.confidence],
+              borderRadius: 20,
+            },
+          ]}
+        >
           <Text style={plumaStylesheets.confidenceText}>
             {plumaConfidenceLabel[result.confidence]}
           </Text>
@@ -40,18 +48,18 @@ export function PlumaBirdCard({
 
         <Text style={plumaStylesheets.sectionLabel}>Habitats</Text>
         <View style={plumaStylesheets.chipsWrap}>
-          {habitats.map((h) => (
+          {habitats?.map((h) => (
             <View
               key={h}
               style={[
                 plumaStylesheets.chip,
-                result.habitats.includes(h) && plumaStylesheets.chipActive,
+                result?.habitats?.includes(h) && plumaStylesheets.chipActive,
               ]}
             >
               <Text
                 style={[
                   plumaStylesheets.chipText,
-                  result.habitats.includes(h) &&
+                  result?.habitats?.includes(h) &&
                     plumaStylesheets.chipTextActive,
                 ]}
               >

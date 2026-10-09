@@ -13,7 +13,7 @@ export default function Pluma(): React.JSX.Element {
   const [imageBase64, setImageBase64] = useState<string | null>(null);
 
   const habitats: string[] = useMemo(() => {
-    return habitatsData.rows.map((r: Ihabitats) => {
+    return (habitatsData?.rows ?? []).map((r: Ihabitats) => {
       return r.name;
     });
   }, [habitatsData]);

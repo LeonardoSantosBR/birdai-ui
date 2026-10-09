@@ -44,7 +44,7 @@ export function PlumaContent({
         />
       ) : (
         <>
-          <PreviewImage uri={imageUri} onReset={handleReset} />
+          {!result && <PreviewImage uri={imageUri} onReset={handleReset} />}
           {!result && (
             <TouchableOpacity
               style={[
